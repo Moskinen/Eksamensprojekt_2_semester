@@ -1,25 +1,29 @@
 package com.example.eksamensprojekt_2_semester.model;
 
+import com.example.eksamensprojekt_2_semester.model.enums.Location;
+
 public class Car {
 
     int id;
-    String firstName;
-    String lastName;
-    String address;
-    int zip;
-    int phoneNumber;
-    String email;
-    int CPR;
+    String brand;
+    String model;
+    int steelPrice;
+    int tax;
+    int emission;
+    String color;
+    Location location;
+    boolean damageStatus;
 
-    public Car(int id, String firstName, String lastName, String address, int zip, int phoneNumber, String email, int CPR) {
+    public Car(int id, String brand, String model, int steelPrice, int tax, int emission, String color, Location location, boolean damageStatus) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.zip = zip;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.CPR = CPR;
+        this.brand = brand;
+        this.model = model;
+        this.steelPrice = steelPrice;
+        this.tax = tax;
+        this.emission = emission;
+        this.color = color;
+        this.location = location;
+        this.damageStatus = damageStatus;
     }
 
     public int getId() {
@@ -30,60 +34,67 @@ public class Car {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getModel() {
+        return model;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setModel(String model) {
+        this.model = model;
     }
 
-    public String getAddress() {
-        return address;
+    public int getSteelPrice() {
+        return steelPrice;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setSteelPrice(int steelPrice) {
+        this.steelPrice = steelPrice;
     }
 
-    public int getZip() {
-        return zip;
+    public int getTax() {
+        return tax;
     }
 
-    public void setZip(int zip) {
-        this.zip = zip;
+    public void setTax(int tax) {
+        this.tax = tax;
     }
 
-    public int getPhoneNumber() {
-        return phoneNumber;
+    public int getEmission() {
+        return emission;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setEmission(int emission) {
+        this.emission = emission;
     }
 
-    public String getEmail() {
-        return email;
+    public String getColor() {
+        return color;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public int getCPR() {
-        return CPR;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setCPR(int CPR) {
-        this.CPR = CPR;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
+    public boolean isDamageStatus() {
+        return damageStatus;
+    }
+
+    public void setDamageStatus(boolean damageStatus) {
+        this.damageStatus = damageStatus;
+    }
 }
