@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a><img src="">Bilabonnement</a>
+        <a>KPI</a>
+        <a>Registrere skade</a>
+        <a>Biler</a>
+        <a>Log ud</a>
+    </nav>
+</header>
+
+<div class="page-info">
+    <h1>Udlejnings oversigt</h1>
+    <p>På den her side finder du en oversigt af alle biler der er udlejet i dag </p>
+</div>
+
+<div class="list-of-rented-cars">
+    <div class="cars" th:each="car : ${cars}">
+        <h2 th:text="${car.id}"></h2>
+        <h2 th:text="${car.brand}"></h2>
+        <h2 th:text="${car.model}"></h2>
+        <h2 th:text="${car.color}"></h2>
+        <h2 th:text="${car.location}"></h2>
+    </div>
+</div>
+
+</body>
+</html>
