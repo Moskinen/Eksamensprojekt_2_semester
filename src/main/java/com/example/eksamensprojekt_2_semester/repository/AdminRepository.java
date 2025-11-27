@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface AdminRepository {
 
-    public List<Admin> getAllAdmins();
+    public Admin getAdmin();
 
 }
