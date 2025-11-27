@@ -1,15 +1,15 @@
 package com.example.eksamensprojekt_2_semester.repository;
 
-import com.example.eksamensprojekt_2_semester.model.User;
+import com.example.eksamensprojekt_2_semester.model.Car;
 
 import java.util.List;
 
 public interface CarRepository {
 
-    public List<User> getAllCars();
+    public List<Car> getAllCars();
 
-    public User updateCar(User car);
+    public Car updateCar(Car car);
 
-    public User deleteCar(int id);
+    public Car deleteCar(int id);
 
 }

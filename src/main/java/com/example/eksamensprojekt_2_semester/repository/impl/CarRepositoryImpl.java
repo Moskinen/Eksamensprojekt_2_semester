@@ -1,5 +1,6 @@
 package com.example.eksamensprojekt_2_semester.repository.impl;
 
+import com.example.eksamensprojekt_2_semester.model.Car;
 import com.example.eksamensprojekt_2_semester.model.User;
 import com.example.eksamensprojekt_2_semester.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,21 +17,21 @@ public class CarRepositoryImpl implements CarRepository {
     @Autowired
     JdbcTemplate template;
 
-    public List<User> getAllCars() {
+    public List<Car> getAllCars() {
 
         String sql = "SELECT * FROM car";
-        RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
+        RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
         return template.query(sql, rowMapper);
 
     }
 
     @Override
-    public User updateCar(User car) {
+    public Car updateCar(Car car) {
         return null;
     }
 
     @Override
-    public User deleteCar(int id) {
+    public Car deleteCar(int id) {
         return null;
     }
 
