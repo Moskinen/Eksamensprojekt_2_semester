@@ -21,6 +21,10 @@
   <p>På den her side finder du en oversigt af alle biler i systemet eller noget. Her finder du alt relevant information om bilerne</p>
 </div>
 
+<div class="create-car-button">
+  <a class="create-car" href="home/create-car">Opret</a>
+</div>
+
 <div class="list-of-cars">
   <div class="cars" th:each="car : ${cars}">
     <h2 th:text="${car.brand}"></h2>
@@ -30,6 +34,7 @@
     <h2 th:text="${car.tax}"></h2>
     <h2 th:text="${car.emission}"></h2>
     <h2 th:text="${car.location}"></h2>
+    <a class="edit-car" href="home/update-car" >Rediger</a>
   </div>
 </div>
 

@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS car(
     tax           INTEGER(10),
     emission      INTEGER(10),
     color         VARCHAR(50),
-    location      ENUM ('NORDJYLLAND', 'MIDTJYLLAND', 'SØNDERJYLLAND', 'FYN', 'SJÆLLAND'),
+    location      ENUM ('NORDJYLLAND', 'MIDTJYLLAND', 'SOENDERJYLLAND', 'FYN', 'SJAELLAND'),
     damage_status BOOLEAN
 );
 
