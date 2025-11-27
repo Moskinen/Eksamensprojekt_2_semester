@@ -4,8 +4,8 @@ public enum Location {
 
     NORDJYLLLAND,
     MIDTJYLLAND,
-    SØNDERJYLLAND,
+    SOENDERJYLLAND,
     FYN,
-    SJÆLLAND
+    SJAELLAND
 
 }
