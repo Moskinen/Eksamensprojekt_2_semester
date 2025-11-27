@@ -90,7 +90,7 @@ public class Car {
         this.location = location;
     }
 
-    public boolean isDamageStatus() {
+    public boolean getDamageStatus() {
         return damageStatus;
     }
 
