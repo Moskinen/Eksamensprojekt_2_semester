@@ -1,4 +1,11 @@
 package com.example.eksamensprojekt_2_semester.repository;
 
-public class AdminRepository {
+import com.example.eksamensprojekt_2_semester.model.Admin;
+
+import java.util.List;
+
+public interface AdminRepository {
+
+    public List<Admin> getAllAdmins();
+
 }

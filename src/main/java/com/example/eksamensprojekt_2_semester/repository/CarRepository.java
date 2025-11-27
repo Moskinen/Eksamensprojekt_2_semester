@@ -1,6 +1,6 @@
 package com.example.eksamensprojekt_2_semester.repository;
 
-import com.example.eksamensprojekt_2_semester.model.User;
+import com.example.eksamensprojekt_2_semester.model.Car;
 
 import java.util.List;
 
