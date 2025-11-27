@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Update Car</title>
+</head>
+
+<body>
+	<h1>Update Car</h1>
+
+	<form th:action="@{/update-car}" th:object="${car}" method="post">
+
+		<input type="hidden" th:field="*{id}" />
+
+		<label>ID:</label>
+		<input type="number" th:field="*{id}" disabled /><br /><br />
+
+		<label>Brand:</label>
+		<input type="text" th:field="*{brand}" required /><br /><br />
+
+		<label>Model:</label>
+		<input type="text" th:field="*{model}" required /><br /><br />
+
+		<label>Steel Price:</label>
+		<input type="number" step="0.01" th:field="*{steelPrice}" required /><br /><br />
+
+		<label>Tax:</label>
+		<input type="number" step="0.01" th:field="*{tax}" required /><br /><br />
+
+		<label>Emission:</label>
+		<input type="number" step="0.01" th:field="*{emission}" required /><br /><br />
+
+		<label>Color:</label>
+		<input type="text" th:field="*{color}" required /><br /><br />
+
+		<label>Location:</label>
+		<input type="text" th:field="*{location}" required /><br /><br />
+
+		<label>Damage Status:</label>
+		<input type="text" th:field="*{damageStatus}" required /><br /><br />
+
+		<button type="submit">Update Car</button>
+	</form>
+</body>
+
+</html>
