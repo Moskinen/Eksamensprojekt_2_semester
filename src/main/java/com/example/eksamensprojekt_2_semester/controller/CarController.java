@@ -22,7 +22,7 @@ public class CarController {
 	@GetMapping("/create-car")
 	public String showCreateForm(Model model) {
 		model.addAttribute("car", new Car());
-		return "admin_car_create";
+		return "home/admin_car_create";
 	}
 
 	@PostMapping("/create-car")
@@ -35,7 +35,7 @@ public class CarController {
 	public String showUpdateForm(@RequestParam int id, Model model) {
 		Car car = carService.getCarById(id);
 		model.addAttribute("car", car);
-		return "admin_car_update";
+		return "home/admin_car_update";
 	}
 
 	@PostMapping("/update-car")
