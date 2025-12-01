@@ -1,4 +1,43 @@
 
+/* ------------------
+    CSS FOR CREATE
+--------------------*/
+.create-form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+    max-width: 600px;
+}
+
+.create-form label{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.create-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-form button{
+    grid-column: span 2;
+    border: 4px solid #1892c3;
+    background-color: white;
+    color: #1892c3;
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.create-form button:hover {
+    background-color: #1892c3;
+    color: white;
+}
+
 
 /* ------------------
     CSS FOR LOGIN
