@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Vehicle Report</title>
+</head>
+<body>
+
+<form action="/createDamage" method="post">
+
+    <input type="hidden" name="vehicleReportId" value="${vehicleReport.id}">
+
+    <table>
+        <tr>
+
+            <th>navn</th>
+            <th>pris</th>
+            <th></th>
+
+        </tr>
+        <tr>
+
+            <td><input name="name" type="text" required></td>
+            <td><input name="price" type="number" required></td>
+            <td>
+                <button type="button" onclick="removeRow(this)">Fjern</button>
+            </td>
+
+        </tr>
+
+    </table>
+
+    <button type="button" onclick="addRow()">Tilføj</button>
+    <button type="submit">Gem rapport</button>
+
+</form>
+
+</body>
+</html>
+
+<script>
+
+    function addRow() {
+
+        const table = document.querySelector("table");
+        const row = table.insertRow();
+
+        row.innerHTML = `
+            <td><input name="name" type="text" required/></td>
+            <td><input name="price" type="number" required/></td>
+            <td><button type="button" onClick="removeRow(this)">Fjern</button></td>`;
+
+    }
+
+    function removeRow(button) {
+      const row = button.closest("tr");
+      row.remove();
+    }
+
+
+
+</script>
