@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <div class="login">
     <form action="/admin_index" method="post">
-        <label for="username">Brugernavn:</label>
-        <input type="text" id="username" name="username" placeholder="Indtast brugernavn">
+        <div class="login-username">
+            <label for="username">Brugernavn:</label>
+            <input type="text" id="username" name="username" placeholder="Indtast brugernavn">
+        </div>
 
-        <label for="pwd">Kodeord:</label>
-        <input type="password" id="pwd" name="pwd" placeholder="Indtast kodeord"><br>
-
+        <div class="login-password">
+            <label for="pwd">Kodeord:</label>
+            <input type="password" id="pwd" name="pwd" placeholder="Indtast kodeord"><br>
+        </div>
         <button type="submit">Login</button>
     </form>
 </div>
