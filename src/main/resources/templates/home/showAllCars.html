@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Cars</title>
+</head>
+
+
+<table>
+	<thead>
+		<tr>
+			<th>Image</th>
+			<th>Brand</th>
+			<th>Model</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="car : ${cars}">
+
+			<!-- Display image if present -->
+			<td>
+				<img th:if="${car.imageBase64 != null}"
+					th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
+					style="width:150px; height:auto;" />
+			</td>
+
+			<td th:text="${car.brand}"></td>
+			<td th:text="${car.model}"></td>
+
+		</tr>
+	</tbody>
+</table>

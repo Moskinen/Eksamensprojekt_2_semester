@@ -8,7 +8,7 @@
 <body>
 	<h1>Update Car</h1>
 
-	<form th:action="@{/update-car}" th:object="${car}" method="post">
+	<form th:action="@{/update-car}" th:object="${car}" method="post" enctype="multipart/form-data">
 
 		<input type="hidden" th:field="*{id}" />
 
@@ -38,6 +38,9 @@
 
 		<label>Damage Status:</label>
 		<input type="text" th:field="*{damageStatus}" required /><br /><br />
+
+		<label>Image:</label>
+		<input type="file" name="image" accept="image/*" required /><br /><br />
 
 		<button type="submit">Update Car</button>
 	</form>

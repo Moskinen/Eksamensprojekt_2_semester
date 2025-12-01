@@ -22,14 +22,14 @@ public class CarRepositoryImpl implements CarRepository {
 
     @Override
     public void createCar(Car car) {
-        String sql = "INSERT INTO car (id, brand, model, steel_price, tax, emission, color, location, damage_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        template.update(sql, car.getId(), car.getBrand(), car.getModel(), car.getSteelPrice(), car.getTax(), car.getEmission(), car.getColor(), car.getLocation(), car.getDamageStatus());
+        String sql = "INSERT INTO car (id, brand, model, steel_price, tax, emission, color, location, damage_status, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        template.update(sql, car.getId(), car.getBrand(), car.getModel(), car.getSteelPrice(), car.getTax(), car.getEmission(), car.getColor(), car.getLocation(), car.getDamageStatus(), car.getImage());
     }
 
     @Override
     public void updateCar(Car car) {
-        String sql = "UPDATE car SET brand=?, model=?, steel_price=?, tax=?, emission=?, color=?, location=?, damage_status=? WHERE id=?";
-        template.update(sql, car.getBrand(), car.getModel(), car.getSteelPrice(), car.getTax(), car.getEmission(), car.getColor(), car.getLocation(), car.getDamageStatus(), car.getId());
+        String sql = "UPDATE car SET brand=?, model=?, steel_price=?, tax=?, emission=?, color=?, location=?, damage_status=?, image=? WHERE id=?";
+        template.update(sql, car.getBrand(), car.getModel(), car.getSteelPrice(), car.getTax(), car.getEmission(), car.getColor(), car.getLocation(), car.getDamageStatus(), car.getImage(), car.getId());
     }
 
     @Override
