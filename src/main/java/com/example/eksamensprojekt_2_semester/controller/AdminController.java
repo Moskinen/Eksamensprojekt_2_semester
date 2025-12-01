@@ -37,4 +37,16 @@ public class AdminController {
         return null;
     }
 
+    @GetMapping ("/allCarsAdmin")
+    public String allCarsAdmin(){
+        return "home/allCarsAdmin";
+    }
+
+    @GetMapping ("/todaysRentals")
+    public String todaysRentals(){
+        return "home/todaysRentals";
+    }
+
+
+
 }
