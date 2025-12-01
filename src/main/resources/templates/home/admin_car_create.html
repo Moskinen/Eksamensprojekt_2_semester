@@ -2,53 +2,75 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Create Car</title>
+    <title>Create Car</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-	<h1>Create New Car</h1>
+<h1>Create New Car</h1>
 
-	<form th:action="@{/create-car}" th:object="${car}" method="post" enctype="multipart/form-data">
+<div class="form-box">
+    <form th:action="@{/create-car}" th:object="${car}" method="post" enctype="multipart/form-data" class="create-form">
 
-		<label>ID:</label>
-		<input type="number" th:field="*{id}" required /><br /><br />
+        <div>
+            <label>ID:</label>
+            <input type="number" th:field="*{id}" required/>
+        </div>
 
-		<label>Brand:</label>
-		<input type="text" th:field="*{brand}" required /><br /><br />
+        <div>
+            <label>Brand:</label>
+            <input type="text" th:field="*{brand}" required/>
+        </div>
 
-		<label>Model:</label>
-		<input type="text" th:field="*{model}" required /><br /><br />
+        <div>
+            <label>Model:</label>
+            <input type="text" th:field="*{model}" required/>
+        </div>
 
-		<label>Steel Price:</label>
-		<input type="number" step="0.01" th:field="*{steelPrice}" required /><br /><br />
+        <div>
+            <label>Steel Price:</label>
+            <input type="number" step="0.01" th:field="*{steelPrice}" required/>
+        </div>
 
-		<label>Tax:</label>
-		<input type="number" step="0.01" th:field="*{tax}" required /><br /><br />
+        <div>
+            <label>Tax:</label>
+            <input type="number" step="0.01" th:field="*{tax}" required/>
+        </div>
 
-		<label>Emission:</label>
-		<input type="number" step="0.01" th:field="*{emission}" required /><br /><br />
+        <div>
+            <label>Emission:</label>
+            <input type="number" step="0.01" th:field="*{emission}" required/>
+        </div>
 
-		<label>Color:</label>
-		<input type="text" th:field="*{color}" required /><br /><br />
+        <div>
+            <label>Color:</label>
+            <input type="text" th:field="*{color}" required/>
+        </div>
 
-		<label>Location:</label>
-		<select th:field="*{location}" required>
-			<option th:value="NORDJYLLAND" th:text="'NORDJYLLAND'">NORDJYLLAND</option>
-			<option th:value="MIDTJYLLAND" th:text="'MIDTJYLLAND'">MIDTJYLLAND</option>
-			<option th:value="SOENDERJYLLAND" th:text="'SOENDERJYLLAND'">SOENDERJYLLAND</option>
-			<option th:value="FYN" th:text="'FYN'">FYN</option>
-			<option th:value="SJAELLAND" th:text="'SJAELLAND'">SJAELLAND</option>
-		</select>
-		<br /><br />
+        <div>
+            <label>Location:</label>
+            <select th:field="*{location}" required>
+                <option th:value="NORDJYLLAND" th:text="'NORDJYLLAND'">NORDJYLLAND</option>
+                <option th:value="MIDTJYLLAND" th:text="'MIDTJYLLAND'">MIDTJYLLAND</option>
+                <option th:value="SOENDERJYLLAND" th:text="'SOENDERJYLLAND'">SOENDERJYLLAND</option>
+                <option th:value="FYN" th:text="'FYN'">FYN</option>
+                <option th:value="SJAELLAND" th:text="'SJAELLAND'">SJAELLAND</option>
+            </select>
+        </div>
 
-		<label>Damage Status:</label>
-		<input type="text" th:field="*{damageStatus}" required /><br /><br />
+        <div>
+            <label>Damage Status:</label>
+            <input type="text" th:field="*{damageStatus}" required/>
+        </div>
 
-		<label>Image:</label>
-		<input type="file" name="image" accept="image/*" required /><br /><br />
+        <div>
+            <label>Image:</label>
+            <input type="file" name="image" accept="image/*" required/>
+        </div>
 
-		<button type="submit">Create Car</button>
-	</form>
+        <button type="submit">Create Car</button>
+    </form>
+</div>
 </body>
 
 </html>
