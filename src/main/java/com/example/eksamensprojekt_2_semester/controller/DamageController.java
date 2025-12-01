@@ -5,6 +5,8 @@ import com.example.eksamensprojekt_2_semester.model.VehicleReport;
 import com.example.eksamensprojekt_2_semester.service.DamageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -19,6 +21,12 @@ public class DamageController {
 
     public DamageController(DamageService damageService) {
         this.damageService = damageService;
+    }
+
+    @GetMapping("/createDamage")
+    public String createDamage(@RequestParam int vehicleReportId, Model model) {
+        model.addAttribute("vehicleReportId", vehicleReportId);
+        return "home/createVehicleReport";
     }
 
     @PostMapping("/createDamage")
@@ -39,9 +47,11 @@ public class DamageController {
 
         damageService.saveAllDamages(damages, vehicleReportId);
 
-        return ("redirect:/");
+        return ("redirect:/admin_index");
 
     }
+
+
 
 
 }
