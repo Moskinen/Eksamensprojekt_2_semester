@@ -22,4 +22,6 @@ public class AdminRepositoryImpl implements AdminRepository {
         RowMapper<Admin> adminRowMapper = new BeanPropertyRowMapper<>(Admin.class);
         return template.queryForObject(sql, adminRowMapper);
     }
+
+
 }

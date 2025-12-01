@@ -2,8 +2,8 @@ package com.example.eksamensprojekt_2_semester.model;
 
 public class Admin {
 
-    String username;
-    String password;
+    private String username;
+    private String password;
 
     public Admin(String username, String password) {
         this.username = username;

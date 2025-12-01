@@ -46,5 +46,11 @@ public class CarRepositoryImpl implements CarRepository {
 	return car;
     }
 
+    @Override
+    public int getTotalCars(){
+        String sql = "SELECT COUNT(*) FROM car";
+        return template.queryForObject(sql, Integer.class);
+    }
+
 
 }

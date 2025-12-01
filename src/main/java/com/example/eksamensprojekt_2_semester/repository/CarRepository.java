@@ -16,4 +16,5 @@ public interface CarRepository {
 
     public Car getCarById(int id);
 
+    public int getTotalCars();
 }

@@ -73,3 +73,8 @@ CREATE TABLE IF NOT EXISTS damages(
     FOREIGN KEY (vehicle_report_id) REFERENCES vehicle_report (id)
 );
 
+INSERT INTO car (brand, model, steel_price, tax, emission, color, location, damage_status)
+VALUES
+    ('Toyota', 'Corolla', 20000, 1500, 120, 'Red', 'MIDTJYLLAND', FALSE),
+    ('Ford', 'Focus', 18000, 1200, 130, 'Blue', 'SJAELLAND', FALSE),
+    ('BMW', 'X5', 50000, 4000, 200, 'Black', 'NORDJYLLAND', FALSE);

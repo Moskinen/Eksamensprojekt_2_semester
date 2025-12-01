@@ -8,4 +8,6 @@ public interface AdminRepository {
 
     public Admin getAdmin();
 
+
+
 }
