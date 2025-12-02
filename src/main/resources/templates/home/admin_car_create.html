@@ -10,11 +10,11 @@
 <h1>Create New Car</h1>
 
 <div class="form-box">
-    <form th:action="@{/create-car}" th:object="${car}" method="post" enctype="multipart/form-data" class="create-form">
+    <form th:action="@{/create-car}" th:object="${car}" method="post" enctype="multipart/form-data" class="CRUD-form">
 
 		<div>
 			<label>Brand:</label>
-			<input type="text" th:field="*{brand}" required /><br /><br />
+			<input type="text" th:field="*{brand}" required />
 		</div>
 
         <div>
