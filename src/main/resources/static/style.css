@@ -1,6 +1,39 @@
 
 
 /* ------------------
+    CSS FOR CREATE
+--------------------*/
+.form-box{
+    margin-top: 50px ;
+    display: flex;
+    justify-content: center;
+}
+
+.create-form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+    max-width: 600px;
+}
+
+.create-form label{
+    font-family: "system-ui";
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.create-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-form button{
+    margin-top: 25px;
+    grid-column: span 2;
+}
+
+/* ------------------
     CSS FOR LOGIN
 -------------------*/
 .login {
@@ -30,7 +63,27 @@
     border: 1px solid black;
 }
 
-.login button {
+
+/* ---------------------------
+    CSS FOR REPETITIVE THINGS
+------------------------------*/
+/* -------------
+     HEADERS
+---------------*/
+
+h1 {
+    font-family: "system-ui";
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* -------------
+     BUTTONS
+---------------*/
+.login button,
+.create-form button{
     border: 4px solid #1892c3;
     background-color: white;
     color: #1892c3;
@@ -42,7 +95,8 @@
     margin-top: 10px;
 }
 
-.login button:hover {
+.login button:hover,
+.create-form button:hover{
     background-color: #1892c3;
     color: white;
 }
