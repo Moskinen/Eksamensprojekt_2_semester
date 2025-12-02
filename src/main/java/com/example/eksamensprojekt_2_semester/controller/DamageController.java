@@ -1,7 +1,6 @@
 package com.example.eksamensprojekt_2_semester.controller;
 
 import com.example.eksamensprojekt_2_semester.model.Damage;
-import com.example.eksamensprojekt_2_semester.model.VehicleReport;
 import com.example.eksamensprojekt_2_semester.service.DamageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
