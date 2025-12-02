@@ -8,7 +8,7 @@
 
 <form action="/createDamage" method="post">
 
-    <input type="hidden" name="vehicleReportId" value="${vehicleReport.id}">
+    <input type="hidden" name="vehicleReportId" th:value="${vehicleReportId}">
 
     <table>
         <tr>
@@ -21,10 +21,17 @@
         <tr>
 
             <td><input name="name" type="text" required></td>
-            <td><input name="price" type="number" required></td>
+            <td><input name="price" type="number" required oninput="updateTotal()"></td>
             <td>
-                <button type="button" onclick="removeRow(this)">Fjern</button>
+                <button type="button" onclick="removeRow(this); updateTotal()">Fjern</button>
             </td>
+
+        </tr>
+        <tr id="totalRow">
+
+            <td>samlet pris:</td>
+            <td><span id="totalPrice">0</span></td>
+            <td></td>
 
         </tr>
 
@@ -43,12 +50,13 @@
     function addRow() {
 
         const table = document.querySelector("table");
-        const row = table.insertRow();
+        const totalRow = document.getElementById("totalRow")
+        const row = table.insertRow(totalRow.rowIndex);
 
         row.innerHTML = `
             <td><input name="name" type="text" required/></td>
-            <td><input name="price" type="number" required/></td>
-            <td><button type="button" onClick="removeRow(this)">Fjern</button></td>`;
+            <td><input name="price" type="number" required oninput="updateTotal()"/></td>
+            <td><button type="button" onClick="removeRow(this); updateTotal()">Fjern</button></td>`;
 
     }
 
@@ -57,6 +65,19 @@
       row.remove();
     }
 
+    function updateTotal() {
+
+        const prices = document.querySelectorAll('input[name="price"]')
+        let total = 0;
+        prices.forEach(input => {
+                total += parseInt(input.value) || 0;
+            }
+        )
+        document.getElementById("totalPrice").textContent = total;
+
+    }
+
+    updateTotal();
 
 
 </script>

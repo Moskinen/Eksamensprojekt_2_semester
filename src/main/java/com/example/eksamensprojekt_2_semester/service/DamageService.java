@@ -32,5 +32,19 @@ public class DamageService {
 
     }
 
+    public int calculateTotalPrice(List<Damage> damages) {
+
+        int totalPrice = 0;
+
+        for(Damage damage : damages) {
+
+            totalPrice += damage.getPrice();
+
+        }
+
+        return totalPrice;
+
+    }
+
 
 }

@@ -14,7 +14,7 @@ public class DamageRepositoryImpl implements DamageRepository {
 
     @Override
     public void createDamageById(Damage damage) {
-        String sql = "INSERT INTO damage (name, price, vehicle_report_id) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO damages (name, price, vehicle_report_id) VALUES (?, ?, ?)";
         template.update(sql, damage.getName(), damage.getPrice(), damage.getVehicleReportId());
 
     }

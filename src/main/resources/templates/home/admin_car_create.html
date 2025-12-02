@@ -12,15 +12,10 @@
 <div class="form-box">
     <form th:action="@{/create-car}" th:object="${car}" method="post" enctype="multipart/form-data" class="create-form">
 
-        <div>
-            <label>ID:</label>
-            <input type="number" th:field="*{id}" required/>
-        </div>
-
-        <div>
-            <label>Brand:</label>
-            <input type="text" th:field="*{brand}" required/>
-        </div>
+		<div>
+			<label>Brand:</label>
+			<input type="text" th:field="*{brand}" required /><br /><br />
+		</div>
 
         <div>
             <label>Model:</label>
@@ -65,7 +60,7 @@
 
         <div>
             <label>Image:</label>
-            <input type="file" name="image" accept="image/*" required/>
+			<input type="file" name="imageFile" accept="image/*" required />
         </div>
 
         <button type="submit">Create Car</button>
