@@ -53,7 +53,7 @@ public class CarController {
 	}
 
 	@PostMapping("/update-car")
-	public String updateCar(@ModelAttribute Car car, @RequestParam("image") MultipartFile imageFile) throws IOException {
+	public String updateCar(@ModelAttribute Car car, @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
 		if (!imageFile.isEmpty()) {
 			car.setImage(imageFile.getBytes());
 		}
