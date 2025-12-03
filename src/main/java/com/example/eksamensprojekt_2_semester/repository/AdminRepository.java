@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AdminRepository {
 
-    public Admin getAdmin();
+    Admin getAdmin();
 
 
 

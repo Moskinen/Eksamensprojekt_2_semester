@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface DamageRepository {
 
-    public List<Damage> fetchDamageById(int vehicleReport);
+    List<Damage> fetchDamageById(int vehicleReport);
 
-    public int deleteDamageById(int vehicleReport);
+    int deleteDamageById(int vehicleReport);
 
-    public void createDamageById(Damage damage);
+    void createDamageById(Damage damage);
 
 }

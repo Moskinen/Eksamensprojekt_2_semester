@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>show_specific_car</title>
+</head>
+<body>
+
+<h1>Bilinformation</h1>
+
+
+    <div class="read_car">
+
+        <div class="car_picture">
+            <img th:if="${car.imageBase64 != null}"
+                 th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
+                 style="width:150px; height:auto;" />
+        </div>
+
+        <div>
+            <label>ID:</label>
+            <span th:text="${car.id}"></span>
+        </div>
+
+        <div>
+            <label>Producent:</label>
+            <span th:text="${car.brand}"></span>
+        </div>
+
+        <div>
+            <label>Model:</label>
+            <span th:text="${car.model}"></span>
+        </div>
+
+        <div>
+            <label>Skrotpris:</label>
+            <span th:text="${car.steelPrice}"></span>
+        </div>
+
+        <div>
+            <label>Skat:</label>
+            <span th:text="${car.tax}"></span>
+        </div>
+
+        <div>
+            <label>Forurening:</label>
+            <span th:text="${car.emission}"></span>
+        </div>
+
+        <div>
+            <label>Farve:</label>
+            <span th:text="${car.color}"></span>
+        </div>
+
+        <div>
+            <label>Lokation:</label>
+            <span th:text="${car.location}"></span>
+        </div>
+
+        <div>
+            <label>Skade status:</label>
+            <span th:text="${car.damageStatus}"></span>
+        </div>
+
+        <div class="rent_button">
+            <a href="home/createUser">
+            <button type="submit">Lej bilen</button>
+            </a>
+        </div>
+
+        <div class="buy_button">
+            <a href="home/createUser">
+            <button type="submit">Køb bilen</button>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

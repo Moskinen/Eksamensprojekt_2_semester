@@ -6,15 +6,15 @@ import java.util.List;
 
 public interface CarRepository {
 
-    public List<Car> getAllCars();
+    List<Car> getAllCars();
 
-    public void createCar(Car car);
+    void createCar(Car car);
 
-    public void updateCar(Car car);
+    void updateCar(Car car);
 
-    public boolean deleteCar(int id);
+    boolean deleteCar(int id);
 
-    public Car getCarById(int id);
+    Car getCarById(int id);
 
-    public int getTotalCars();
+    int getTotalCars();
 }

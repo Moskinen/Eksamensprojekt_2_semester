@@ -60,4 +60,11 @@ public class CarController {
 		carService.updateCar(car);
 		return "redirect:/update-car";
 	}
+
+	@GetMapping("/show-specific-car")
+	public String showSpecificCar(@RequestParam int id, Model model){
+		Car car = carService.getCarById(id);
+		model.addAttribute("car", car);
+		return "home/show_specific_car";
+	}
 }

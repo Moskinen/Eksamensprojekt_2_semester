@@ -21,9 +21,11 @@
 
 			<!-- Display image if present -->
 			<td>
+				<a th:href="@{/show-specific-car(id=${car.id})}">
 				<img th:if="${car.imageBase64 != null}"
 					th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
 					style="width:150px; height:auto;" />
+				</a>
 			</td>
 
 			<td th:text="${car.brand}"></td>
