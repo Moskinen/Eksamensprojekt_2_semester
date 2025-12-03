@@ -25,7 +25,8 @@
         <tr th:each="damage: ${damages}">
 
             <td><input name="name" type="text" th:value="${damage.name}" required></td>
-            <td><input name="price" type="number" th:value="${damage.price}" min="0" required oninput="updateTotal()"></td>
+            <td><input name="price" type="number" th:value="${damage.price}" min="0" required oninput="updateTotal()">
+            </td>
             <td>
                 <button type="button" onclick="removeRow(this); updateTotal()">Fjern</button>
             </td>
@@ -53,14 +54,12 @@
     //Metode til at tilføje ny række i tabellen.
     function addRow() {
 
-        //Finder tabellen man ønsker at ændre.
         const table = document.querySelector("table");
-        //Finder rækken hvor den samlede pris står.
+
         const totalRow = document.getElementById("totalRow")
-        //Man definerer row og hvor denne skal indsættes - På indekset for totalRow, så totalRow skubbes ned.
+
         const row = table.insertRow(totalRow.rowIndex);
 
-        //Definerer hvad den nye række skal indeholde, så den matcher eksisterende rækker.
         row.innerHTML = `
             <td><input name="name" type="text" required/></td>
             <td><input name="price" type="number" required oninput="updateTotal()" min="0"></td>
@@ -68,29 +67,26 @@
 
     }
 
-    //Metode til at fjerne række fra tabellen.
+
     function removeRow(button) {
-        //Finder rækken, der hører til knappen.
+
         const row = button.closest("tr");
-        //Fjerner den fundne række
+
         row.remove();
     }
 
     //Metode til at opdatere den samlede pris på siden så snart der sker ændringer.
     function updateTotal() {
 
-        //Finder alle input fields med navnet "price"
         const prices = document.querySelectorAll('input[name="price"]')
-        //Opretter en total variabel, som skal bruges til at opbevare den samlede pris.
+
         let total = 0;
-        //For-each loop, der løber igennem prices og summerer alle priserne i total.
+
         prices.forEach(input => {
-        //Konverterer input-værdien til en integer. Hvis feltet er tomt, f.eks. hvis værdien ikke kan parses til en integer, vil 0 i stedet blive lagt til, så der ikke opstår fejl.
                 total += parseInt(input.value) || 0;
             }
         )
 
-        //Finder og formaterer den samlede pris til dansk format.
         document.getElementById("totalPrice").textContent = total.toLocaleString('da-DK');
 
     }
