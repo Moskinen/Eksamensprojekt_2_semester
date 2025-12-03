@@ -17,34 +17,25 @@ public class DamageService {
         this.damageRepository = damageRepository;
     }
 
-    public void createDamageById(Damage damage) {
-        damageRepository.createDamageById(damage);
+    public List<Damage> fetchDamageById(int vehicleReport) {
+        return damageRepository.fetchDamageById(vehicleReport);
     }
 
-    public void saveAllDamages(List<Damage> damages, int vehicleReportId) {
-
-        for(Damage damage : damages) {
-
-            damage.setVehicleReportId(vehicleReportId);
-            damageRepository.createDamageById(damage);
-
-        }
-
+    public void deleteDamageById(int vehicleReport) {
+        damageRepository.deleteDamageById(vehicleReport);
     }
 
-    public int calculateTotalPrice(List<Damage> damages) {
+    public void updateAllDamages(List<Damage> damages, int vehicleReportId) {
 
-        int totalPrice = 0;
+        deleteDamageById(vehicleReportId);
 
-        for(Damage damage : damages) {
+            for (Damage damage : damages) {
 
-            totalPrice += damage.getPrice();
+                damage.setVehicleReportId(vehicleReportId);
+                damageRepository.createDamageById(damage);
 
-        }
-
-        return totalPrice;
+            }
 
     }
-
 
 }

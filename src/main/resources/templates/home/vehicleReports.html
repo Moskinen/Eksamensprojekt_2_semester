@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of vehicle reports</title>
+</head>
+<body>
+
+<table>
+
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Bil ID</th>
+        <th>Samlet pris</th>
+    </tr>
+    </thead>
+
+
+    <tbody>
+    <tr th:each="vehicleReports: ${vehicleReports}"
+        th:attr="onclick=|window.location.href='@{/updateVehicleReport(vehicleReportId=${vehicleReports.id})}'|"
+        style="cursor: pointer;">
+        <td th:text="${vehicleReports.id}"></td>
+        <td th:text="${vehicleReports.carId}"></td>
+        <td th:text="${vehicleReports.totalCost}"></td>
+
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>

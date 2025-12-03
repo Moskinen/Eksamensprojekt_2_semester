@@ -1,8 +1,11 @@
 package com.example.eksamensprojekt_2_semester.service;
 
+import com.example.eksamensprojekt_2_semester.model.VehicleReport;
 import com.example.eksamensprojekt_2_semester.repository.VehicleReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class VehicleReportService {
@@ -12,6 +15,10 @@ public class VehicleReportService {
     @Autowired
     VehicleReportService(VehicleReportRepository vehicleReportRepository) {
         this.vehicleReportRepository = vehicleReportRepository;
+    }
+
+    public List<VehicleReport> getAllVehicleReports() {
+        return vehicleReportRepository.getAllVehicleReports();
     }
 
 }

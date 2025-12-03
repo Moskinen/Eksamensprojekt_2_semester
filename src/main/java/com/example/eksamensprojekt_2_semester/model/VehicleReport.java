@@ -12,6 +12,9 @@ public class VehicleReport {
         this.totalCost = totalCost;
     }
 
+    public VehicleReport() {
+    }
+
     public int getId() {
         return id;
     }

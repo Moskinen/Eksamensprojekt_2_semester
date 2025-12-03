@@ -1,16 +1,34 @@
 package com.example.eksamensprojekt_2_semester.repository.impl;
 
 import com.example.eksamensprojekt_2_semester.model.Damage;
+import com.example.eksamensprojekt_2_semester.model.VehicleReport;
 import com.example.eksamensprojekt_2_semester.repository.DamageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class DamageRepositoryImpl implements DamageRepository {
 
-@Autowired
+    @Autowired
     JdbcTemplate template;
+
+    @Override
+    public List<Damage> fetchDamageById(int vehicleReport) {
+        String sql = "SELECT * FROM damages where vehicle_report_id = ?";
+        RowMapper<Damage> rowMapper = new BeanPropertyRowMapper<>(Damage.class);
+        return template.query(sql, rowMapper, vehicleReport);
+
+    }
+
+    public int deleteDamageById(int vehicleReport) {
+        String sql = "DELETE FROM damages where vehicle_report_id = ?";
+        return template.update(sql, vehicleReport);
+    }
 
     @Override
     public void createDamageById(Damage damage) {
@@ -18,4 +36,5 @@ public class DamageRepositoryImpl implements DamageRepository {
         template.update(sql, damage.getName(), damage.getPrice(), damage.getVehicleReportId());
 
     }
+
 }
