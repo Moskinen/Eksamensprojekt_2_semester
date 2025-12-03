@@ -85,7 +85,7 @@
         let total = 0;
         //For-each loop, der løber igennem prices og summerer alle priserne i total.
         prices.forEach(input => {
-        //Konverterer input-værdien til integers. Hvis feltet er tomt, f.eks. hvis værdien ikke kan parses til en integer, vil 0 i stedet blive lagt til, så der ikke opstår fejl.
+        //Konverterer input-værdien til en integer. Hvis feltet er tomt, f.eks. hvis værdien ikke kan parses til en integer, vil 0 i stedet blive lagt til, så der ikke opstår fejl.
                 total += parseInt(input.value) || 0;
             }
         )
