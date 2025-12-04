@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create user</title>
+</head>
+<body>
+
+<div class="car-image-createUser">
+    <img th:if="${car.imageBase64 != null}"
+         th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
+         style="width:150px; height:auto;"/>
+</div>
+
+<div class="user-form-box">
+    <input type="hidden" name="carId" th:value="${car}">
+
+    <form th:action="@{/create-user}" th:object="${user}" method="post" enctype="multipart/form-data" class="user-form">
+
+        <div>
+            <label>Fornavn:</label>
+
+            <input type="text" th:field="*{firstName}" required/>
+        </div>
+
+        <div>
+            <label>Efternavn:</label>
+            <input type="text" th:field="*{lastName}" required/>
+        </div>
+
+        <div>
+            <label>Adresse:</label>
+            <input type="text" th:field="*{address}" required>
+        </div>
+
+        <div>
+            <label>Postnummer:</label>
+            <input type="text" th:field="*{zip}" required>
+        </div>
+
+        <div>
+            <label>Tlf. Nummer:</label>
+            <input type="text" th:field="*{phoneNumber}" required>
+        </div>
+
+        <div>
+            <label>Email:</label>
+            <input type="text" th:field="*{email}" required>
+        </div>
+
+        <div>
+            <label>CPR-Nummer:</label>
+            <input type="text" th:field="*{CPR}" required>
+        </div>
+
+        <button type="submit">Bekræft</button>
+
+    </form>
+</div>
+
+</body>
+</html>

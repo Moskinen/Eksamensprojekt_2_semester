@@ -10,6 +10,9 @@ public class PurchaseContract {
 	private int carId;
 	private int vehicleReportId;
 
+	public PurchaseContract() {
+	}
+
 	public PurchaseContract(int id, int price, LocalDate receiveDate, int userId, int carId, int vehicleReportId) {
 		this.id = id;
 		this.price = price;

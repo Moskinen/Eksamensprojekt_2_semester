@@ -11,6 +11,8 @@ public class User {
     String email;
     int CPR;
 
+    public User() {}
+
     public User(int id, String firstName, String lastName, String address, int zip, int phoneNumber, String email, int CPR) {
         this.id = id;
         this.firstName = firstName;
