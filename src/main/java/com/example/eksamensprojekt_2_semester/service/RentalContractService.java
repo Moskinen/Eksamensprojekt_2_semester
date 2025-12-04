@@ -27,6 +27,6 @@ public class RentalContractService {
 	}
 
 	public boolean hasRentalContract(int id){
-		return rentalContractRepository.hasRentalContract(id);
+		return getRentalContractById(id) != null;
 	}
 }

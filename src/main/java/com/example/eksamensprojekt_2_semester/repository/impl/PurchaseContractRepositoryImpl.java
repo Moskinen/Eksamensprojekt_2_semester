@@ -2,6 +2,7 @@ package com.example.eksamensprojekt_2_semester.repository.impl;
 
 import java.util.List;
 
+import com.example.eksamensprojekt_2_semester.model.RentalContract;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -30,8 +31,8 @@ public class PurchaseContractRepositoryImpl implements PurchaseContractRepositor
 	public PurchaseContract getPurchaseContractById(int id) {
 		String sql = "SELECT * FROM purchase_contract WHERE id=?";
 		RowMapper<PurchaseContract> rowMapper = new BeanPropertyRowMapper<>(PurchaseContract.class);
-		PurchaseContract purchaseContract = template.queryForObject(sql, rowMapper, id);
-		return purchaseContract;
+		List<PurchaseContract> results = template.query(sql, rowMapper, id);
+		return results.isEmpty() ? null : results.get(0);
 	}
 
 	public boolean hasPurchaseContract(int id){

@@ -30,8 +30,8 @@ public class RentalContractRepositoryImpl implements RentalContractRepository {
 	public RentalContract getRentalContractById(int id) {
 		String sql = "SELECT * FROM rental_contract WHERE id=?";
 		RowMapper<RentalContract> rowMapper = new BeanPropertyRowMapper<>(RentalContract.class);
-		RentalContract rentalContract = template.queryForObject(sql, rowMapper, id);
-		return rentalContract;
+		List<RentalContract> results = template.query(sql, rowMapper, id);
+		return results.isEmpty() ? null : results.get(0);
 	}
 
 	public boolean hasRentalContract(int id){
