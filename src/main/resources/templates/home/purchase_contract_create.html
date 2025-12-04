@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Create Purchase Contract</title>
+	<link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+	<h1>Create New Purchase Contract</h1>
+
+	<div class="form-box">
+		<form th:action="@{/create-purchase-contract}" th:object="${purchase_contract}" method="post"
+			class="CRUD-form">
+
+			<div>
+				<label>Price:</label>
+				<input type="number" step="0.01" th:field="*{price}" required />
+			</div>
+
+			<div>
+				<label>Receive Date:</label>
+				<input type="date" th:field="*{receiveDate}" required />
+			</div>
+
+			<button type="submit">Create Rental Contract</button>
+		</form>
+	</div>
+</body>
+
+</html>

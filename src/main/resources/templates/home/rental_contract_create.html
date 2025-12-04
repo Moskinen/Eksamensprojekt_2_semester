@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Create Rental Contract</title>
+	<link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+	<h1>Create New Rental Contract</h1>
+
+	<div class="form-box">
+		<form th:action="@{/create-rental-contract}" th:object="${rental_contract}" method="post"
+			class="CRUD-form">
+
+			<div>
+				<label>From Date Time:</label>
+				<input type="date" th:field="*{fromDateTime}" required />
+			</div>
+
+			<div>
+				<label>To Date Time:</label>
+				<input type="date" th:field="*{toDateTime}" required />
+			</div>
+
+			<div>
+				<label>Max KM:</label>
+				<input type="number" step="0.01" th:field="*{maxKm}" required />
+			</div>
+
+			<div>
+				<label>Unlimited:</label>
+				<select th:field="*{unlimited}" required>
+					<option th:value="true" th:text="'true'">TRUE</option>
+					<option th:value="false" th:text="'false'">FALSE</option>
+				</select>
+			</div>
+
+			<div>
+				<label>Active:</label>
+				<select th:field="*{active}" required>
+					<option th:value="true" th:text="'true'">TRUE</option>
+					<option th:value="false" th:text="'false'">FALSE</option>
+				</select>
+			</div>
+
+			<button type="submit">Create Rental Contract</button>
+		</form>
+	</div>
+</body>
+
+</html>

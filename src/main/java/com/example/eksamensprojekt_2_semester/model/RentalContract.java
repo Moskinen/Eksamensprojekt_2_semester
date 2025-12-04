@@ -13,6 +13,9 @@ public class RentalContract {
 	private int carId;
 	private int vehicleReportId;
 
+	public RentalContract() {
+	}
+
 	public RentalContract(int id, LocalDate fromDataTime, LocalDate toDateTime, int maxKm, boolean unlimited,
 			boolean active, int userId, int carId, int vehicleReportId) {
 		this.id = id;
