@@ -35,8 +35,8 @@ CREATE TABLE IF NOT EXISTS vehicle_report(
 
 CREATE TABLE IF NOT EXISTS rental_contract(
     id                INT(10) PRIMARY KEY AUTO_INCREMENT,
-    from_date_time    DATE,
-    to_date_time      DATE,
+    from_date_time    DATETIME,
+    to_date_time      DATETIME,
     max_km            INT(10),
     unlimited         boolean,
     active            boolean,
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS rental_contract(
 CREATE TABLE IF NOT EXISTS purchase_contract(
     id                INT(10) PRIMARY KEY AUTO_INCREMENT,
     price             INT(10),
-    receive_date      DATE,
+    receive_date      DATETIME,
     user_id           INT(10),
     car_id            INT(10),
     vehicle_report_id INT(10),
