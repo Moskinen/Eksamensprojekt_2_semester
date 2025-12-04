@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class RentalContract {
 	private int id;
-	private LocalDateTime fromDataTime;
+	private LocalDateTime fromDateTime;
 	private LocalDateTime toDateTime;
 	private int maxKm;
 	private boolean unlimited;
@@ -16,10 +16,10 @@ public class RentalContract {
 	public RentalContract() {
 	}
 
-	public RentalContract(int id, LocalDateTime fromDataTime, LocalDateTime toDateTime, int maxKm, boolean unlimited,
+	public RentalContract(int id, LocalDateTime fromDateTime, LocalDateTime toDateTime, int maxKm, boolean unlimited,
 			boolean active, int userId, int carId, int vehicleReportId) {
 		this.id = id;
-		this.fromDataTime = fromDataTime;
+		this.fromDateTime = fromDateTime;
 		this.toDateTime = toDateTime;
 		this.maxKm = maxKm;
 		this.unlimited = unlimited;
@@ -37,12 +37,12 @@ public class RentalContract {
 		this.id = id;
 	}
 
-	public LocalDateTime getFromDataTime() {
-		return fromDataTime;
+	public LocalDateTime getFromDateTime() {
+		return fromDateTime;
 	}
 
-	public void setFromDataTime(LocalDateTime fromDataTime) {
-		this.fromDataTime = fromDataTime;
+	public void setFromDateTime(LocalDateTime fromDateTime) {
+		this.fromDateTime = fromDateTime;
 	}
 
 	public LocalDateTime getToDateTime() {
