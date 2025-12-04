@@ -52,7 +52,7 @@ public class DamageController {
 
         }
 
-        damageService.updateAllDamages(damages, vehicleReportId);
+        damageService.updateAllDamagesById(damages, vehicleReportId);
 
         return ("redirect:/admin_index");
 

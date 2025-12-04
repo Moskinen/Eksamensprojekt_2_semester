@@ -17,20 +17,14 @@
             <th>Navn</th>
             <th>Pris</th>
             <th></th>
-
         </tr>
         </thead>
         <tbody>
 
         <tr th:each="damage: ${damages}">
-
             <td><input name="name" type="text" th:value="${damage.name}" required></td>
-            <td><input name="price" type="number" th:value="${damage.price}" min="0" required oninput="updateTotal()">
-            </td>
-            <td>
-                <button type="button" onclick="removeRow(this); updateTotal()">Fjern</button>
-            </td>
-
+            <td><input name="price" type="number" th:value="${damage.price}" min="0" required oninput="updateTotal()"></td>
+            <td><button type="button" onclick="removeRow(this); updateTotal()">Fjern</button></td>
         </tr>
 
         <tr id="totalRow">
@@ -73,6 +67,7 @@
         const row = button.closest("tr");
 
         row.remove();
+
     }
 
     //Metode til at opdatere den samlede pris på siden så snart der sker ændringer.
@@ -83,9 +78,8 @@
         let total = 0;
 
         prices.forEach(input => {
-                total += parseInt(input.value) || 0;
-            }
-        )
+            total += parseInt(input.value) || 0;
+        })
 
         document.getElementById("totalPrice").textContent = total.toLocaleString('da-DK');
 

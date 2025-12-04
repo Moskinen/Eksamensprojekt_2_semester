@@ -1,7 +1,6 @@
 package com.example.eksamensprojekt_2_semester.repository.impl;
 
 import com.example.eksamensprojekt_2_semester.model.Damage;
-import com.example.eksamensprojekt_2_semester.model.VehicleReport;
 import com.example.eksamensprojekt_2_semester.repository.DamageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -25,9 +24,10 @@ public class DamageRepositoryImpl implements DamageRepository {
 
     }
 
-    public int deleteDamageById(int vehicleReport) {
+    @Override
+    public int deleteDamageById(int vehicleReportId) {
         String sql = "DELETE FROM damages where vehicle_report_id = ?";
-        return template.update(sql, vehicleReport);
+        return template.update(sql, vehicleReportId);
     }
 
     @Override

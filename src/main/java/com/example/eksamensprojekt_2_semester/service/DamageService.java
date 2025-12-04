@@ -25,14 +25,18 @@ public class DamageService {
         damageRepository.deleteDamageById(vehicleReport);
     }
 
-    public void updateAllDamages(List<Damage> damages, int vehicleReportId) {
+    public void createDamageById(Damage damage) {
+        damageRepository.createDamageById(damage);
+    }
+
+    public void updateAllDamagesById(List<Damage> damages, int vehicleReportId) {
 
         deleteDamageById(vehicleReportId);
 
             for (Damage damage : damages) {
 
                 damage.setVehicleReportId(vehicleReportId);
-                damageRepository.createDamageById(damage);
+                createDamageById(damage);
 
             }
 
