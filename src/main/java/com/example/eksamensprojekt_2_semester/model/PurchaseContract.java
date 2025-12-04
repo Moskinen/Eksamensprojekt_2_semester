@@ -1,11 +1,11 @@
 package com.example.eksamensprojekt_2_semester.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class PurchaseContract {
 	private int id;
 	private int price;
-	private LocalDate receiveDate;
+	private LocalDateTime receiveDate;
 	private int userId;
 	private int carId;
 	private int vehicleReportId;
@@ -13,7 +13,7 @@ public class PurchaseContract {
 	public PurchaseContract() {
 	}
 
-	public PurchaseContract(int id, int price, LocalDate receiveDate, int userId, int carId, int vehicleReportId) {
+	public PurchaseContract(int id, int price, LocalDateTime receiveDate, int userId, int carId, int vehicleReportId) {
 		this.id = id;
 		this.price = price;
 		this.receiveDate = receiveDate;
@@ -38,11 +38,11 @@ public class PurchaseContract {
 		this.price = price;
 	}
 
-	public LocalDate getReceiveDate() {
+	public LocalDateTime getReceiveDate() {
 		return receiveDate;
 	}
 
-	public void setReceiveDate(LocalDate receiveDate) {
+	public void setReceiveDate(LocalDateTime receiveDate) {
 		this.receiveDate = receiveDate;
 	}
 

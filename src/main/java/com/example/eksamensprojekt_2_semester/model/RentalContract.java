@@ -1,11 +1,11 @@
 package com.example.eksamensprojekt_2_semester.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class RentalContract {
 	private int id;
-	private LocalDate fromDataTime;
-	private LocalDate toDateTime;
+	private LocalDateTime fromDataTime;
+	private LocalDateTime toDateTime;
 	private int maxKm;
 	private boolean unlimited;
 	private boolean active;
@@ -16,7 +16,7 @@ public class RentalContract {
 	public RentalContract() {
 	}
 
-	public RentalContract(int id, LocalDate fromDataTime, LocalDate toDateTime, int maxKm, boolean unlimited,
+	public RentalContract(int id, LocalDateTime fromDataTime, LocalDateTime toDateTime, int maxKm, boolean unlimited,
 			boolean active, int userId, int carId, int vehicleReportId) {
 		this.id = id;
 		this.fromDataTime = fromDataTime;
@@ -37,19 +37,19 @@ public class RentalContract {
 		this.id = id;
 	}
 
-	public LocalDate getFromDataTime() {
+	public LocalDateTime getFromDataTime() {
 		return fromDataTime;
 	}
 
-	public void setFromDataTime(LocalDate fromDataTime) {
+	public void setFromDataTime(LocalDateTime fromDataTime) {
 		this.fromDataTime = fromDataTime;
 	}
 
-	public LocalDate getToDateTime() {
+	public LocalDateTime getToDateTime() {
 		return toDateTime;
 	}
 
-	public void setToDateTime(LocalDate toDateTime) {
+	public void setToDateTime(LocalDateTime toDateTime) {
 		this.toDateTime = toDateTime;
 	}
 

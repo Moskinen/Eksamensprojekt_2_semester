@@ -18,7 +18,7 @@ public class RentalContractController {
 	@GetMapping("/create-rental-contract")
 	public String showCreateForm(Model model) {
 		model.addAttribute("rental_contract", new RentalContract());
-		return "home/purchase_contract_create";
+		return "home/rental_contract_create";
 	}
 
 	@PostMapping("/create-rental-contract")
