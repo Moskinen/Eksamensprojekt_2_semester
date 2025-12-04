@@ -25,4 +25,8 @@ public class RentalContractService {
 	public RentalContract getRentalContractById(int id) {
 		return rentalContractRepository.getRentalContractById(id);
 	}
+
+	public boolean hasRentalContract(int id){
+		return rentalContractRepository.hasRentalContract(id);
+	}
 }

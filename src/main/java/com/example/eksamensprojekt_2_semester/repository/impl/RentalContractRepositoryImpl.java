@@ -9,7 +9,9 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.example.eksamensprojekt_2_semester.model.RentalContract;
 import com.example.eksamensprojekt_2_semester.repository.RentalContractRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class RentalContractRepositoryImpl implements RentalContractRepository {
 	@Autowired
 	JdbcTemplate template;
@@ -30,6 +32,10 @@ public class RentalContractRepositoryImpl implements RentalContractRepository {
 		RowMapper<RentalContract> rowMapper = new BeanPropertyRowMapper<>(RentalContract.class);
 		RentalContract rentalContract = template.queryForObject(sql, rowMapper, id);
 		return rentalContract;
+	}
+
+	public boolean hasRentalContract(int id){
+		return getRentalContractById(id) != null;
 	}
 
 }

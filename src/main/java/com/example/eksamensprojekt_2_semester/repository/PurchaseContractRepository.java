@@ -12,4 +12,6 @@ public interface PurchaseContractRepository {
 	void createPurchaseContract(PurchaseContract purchaseContract);
 
 	PurchaseContract getPurchaseContractById(int id);
+
+	boolean hasPurchaseContract(int id);
 }

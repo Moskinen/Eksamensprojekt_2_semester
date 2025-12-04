@@ -2,6 +2,8 @@ package com.example.eksamensprojekt_2_semester.controller;
 import java.io.IOException;
 import java.util.List;
 
+import com.example.eksamensprojekt_2_semester.service.PurchaseContractService;
+import com.example.eksamensprojekt_2_semester.service.RentalContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +19,14 @@ import com.example.eksamensprojekt_2_semester.service.CarService;
 @Controller
 public class CarController {
 	private final CarService carService;
+	private final RentalContractService rentalContractService;
+	private final PurchaseContractService purchaseContractService;
 
 	@Autowired
-	public CarController(CarService carService) {
+	public CarController(CarService carService, RentalContractService rentalContractService, PurchaseContractService purchaseContractService) {
 		this.carService = carService;
+		this.rentalContractService = rentalContractService;
+		this.purchaseContractService = purchaseContractService;
 	}
 
 	@GetMapping("/cars")
@@ -64,7 +70,15 @@ public class CarController {
 	@GetMapping("/show-specific-car")
 	public String showSpecificCar(@RequestParam int id, Model model){
 		Car car = carService.getCarById(id);
+
+		boolean isRented = rentalContractService.hasRentalContract(id);
+		boolean isSold = purchaseContractService.hasPurchaseContract(id);
+		boolean isDamaged = car.getDamageStatus();
+
 		model.addAttribute("car", car);
+		model.addAttribute("isRented", isRented);
+		model.addAttribute("isSold", isSold);
+		model.addAttribute("isDamaged", isDamaged);
 		return "home/show_specific_car";
 	}
 }

@@ -11,4 +11,6 @@ public interface RentalContractRepository {
 	void createRentalContract(RentalContract rentalContract);
 
 	RentalContract getRentalContractById(int id);
+
+	boolean hasRentalContract(int id);
 }

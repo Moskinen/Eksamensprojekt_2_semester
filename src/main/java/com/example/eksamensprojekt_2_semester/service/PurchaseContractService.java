@@ -25,4 +25,8 @@ public class PurchaseContractService {
 	public PurchaseContract getPurchaseContractById(int id) {
 		return purchaseContractRepository.getPurchaseContractById(id);
 	}
+
+	public boolean hasPurchaseContract(int id) {
+		return purchaseContractRepository.hasPurchaseContract(id);
+	}
 }

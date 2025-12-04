@@ -9,7 +9,9 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.example.eksamensprojekt_2_semester.model.PurchaseContract;
 import com.example.eksamensprojekt_2_semester.repository.PurchaseContractRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class PurchaseContractRepositoryImpl implements PurchaseContractRepository {
 	@Autowired
 	JdbcTemplate template;
@@ -30,6 +32,10 @@ public class PurchaseContractRepositoryImpl implements PurchaseContractRepositor
 		RowMapper<PurchaseContract> rowMapper = new BeanPropertyRowMapper<>(PurchaseContract.class);
 		PurchaseContract purchaseContract = template.queryForObject(sql, rowMapper, id);
 		return purchaseContract;
+	}
+
+	public boolean hasPurchaseContract(int id){
+		return getPurchaseContractById(id) != null;
 	}
 
 }
