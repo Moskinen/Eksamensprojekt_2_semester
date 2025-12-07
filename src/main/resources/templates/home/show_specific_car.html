@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>show_specific_car</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <h1>Bilinformation</h1>
 
+<div class="page-structure">
 
-    <div class="read_car">
+    <div class="car-picture">
+        <img th:if="${car.imageBase64 != null}"
+             th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
+             style="width:150px; height:auto;"/>
+    </div>
 
-        <div class="car_picture">
-            <img th:if="${car.imageBase64 != null}"
-                 th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
-                 style="width:150px; height:auto;" />
-        </div>
-
+    <div class="CRUD-form centered-CRUD">
         <div>
             <label>ID:</label>
             <span th:text="${car.id}"></span>
@@ -62,25 +63,30 @@
             <span th:text="${car.damageStatus}"></span>
         </div>
 
-        <div class="rent_button">
+        <div>
+
+        </div>
+
+        <div class="rent-button">
             <a href="home/createUser">
-            <button type="submit"
-                    th:attr= "disabled=${isDamaged or isRented or isSold}">
-                Lej bilen
-            </button>
+                <button type="submit"
+                        th:attr="disabled=${isDamaged or isRented or isSold}">
+                    Lej bilen
+                </button>
             </a>
         </div>
 
-        <div class="buy_button">
+        <div class="buy-button">
             <a href="home/createUser">
                 <button type="submit"
-                        th:attr= "disabled=${isDamaged or isRented or isSold}">
+                        th:attr="disabled=${isDamaged or isRented or isSold}">
                     Køb bilen
-            </button>
+                </button>
             </a>
         </div>
 
     </div>
+</div>
 
 </body>
 </html>

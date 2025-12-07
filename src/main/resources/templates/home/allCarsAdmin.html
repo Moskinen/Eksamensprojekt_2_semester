@@ -1,42 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>All cars admin</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-<header>
-  <nav>
-    <a><img src="">Bilabonnement</a>
-    <a>KPI</a>
-    <a>Registrere skade</a>
-    <a>Biler</a>
-    <a>Log ud</a>
-  </nav>
-</header>
+<nav>
+    <a href="/admin_index"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
+    <div class="nav-links">
+        <a href="/admin_index">KPI</a>
+        <a href="/register_damages">Registrer Skader</a>
+        <a href="/allCarsAdmin">Biler</a>
+        <a href="/index" class="log-out">Log ud</a>
+    </div>
+</nav>
 
 <div class="page-info">
-  <h1>Bil oversigt</h1>
-  <p>På den her side finder du en oversigt af alle biler i systemet eller noget. Her finder du alt relevant information om bilerne</p>
+    <h1>Bil oversigt</h1>
+    <p>På den her side finder du en oversigt af alle biler i systemet. Her finder du alt relevant
+        information og redigere dem.</p>
 </div>
 
 <div class="create-car-button">
-  <a class="create-car" href="home/create-car">Opret</a>
+    <button class="create-car" href="home/create-car">Opret</button>
 </div>
 
-<div class="list-of-cars">
-  <div class="cars" th:each="car : ${cars}">
-    <h2 th:text="${car.brand}"></h2>
-    <h2 th:text="${car.model}"></h2>
-    <h2 th:text="${car.color}"></h2>
-    <h2 th:text="${car.steel_price}"></h2>
-    <h2 th:text="${car.tax}"></h2>
-    <h2 th:text="${car.emission}"></h2>
-    <h2 th:text="${car.location}"></h2>
-    <a class="edit-car" href="home/update-car" >Rediger</a>
-  </div>
-</div>
+
+<table class="list-of-cars">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Color</th>
+        <th>Location</th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="car : ${cars}">
+        <td th:text="${car.id}"></td>
+        <td th:text="${car.brand}"></td>
+        <td th:text="${car.model}"></td>
+        <td th:text="${car.color}"></td>
+        <td th:text="${car.location}"></td>
+        <td><a class="edit-car" href="home/update-car">Rediger</a></td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>
