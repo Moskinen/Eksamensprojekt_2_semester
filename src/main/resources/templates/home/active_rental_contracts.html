@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Active rental contract</title>
+	<link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+	<nav>
+		<a href="/admin_index"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
+		<div class="nav-links">
+			<a href="/admin_index">KPI</a>
+			<a href="/register_damages">Registrer Skader</a>
+			<a href="/allCarsAdmin">Biler</a>
+			<a href="/index" class="log-out">Log ud</a>
+		</div>
+	</nav>
+
+	<div class="page-info">
+		<h1>Active rental contracts</h1>
+		<p></p>
+	</div>
+
+	<h2>Udlejninger i dag</h2>
+	<div class="idk">
+		<table class="idk">
+			<thead>
+				<tr>
+					<th>Fra dato</th>
+					<th>Til dato</th>
+					<th>Max Km</th>
+					<th>Unlimited</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="rentalContract : ${activeRentalContracts}">
+					<td th:text="${rentalContract.fromDateTime}"></td>
+					<td th:text="${rentalContract.toDateTime}"></td>
+					<td th:text="${rentalContract.maxKm}"></td>
+					<td th:text="${rentalContract.unlimited}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+
+</html>

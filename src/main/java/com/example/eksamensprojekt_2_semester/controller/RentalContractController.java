@@ -32,8 +32,8 @@ public class RentalContractController {
 	@GetMapping("/show-active-rental-contracts")
 	public String showActiveRentalContracts(Model model) {
 		List<RentalContract> activeRentalContracts = rentalContractService.getActiveRentalContracts();
-		model.addAttribute("rental_contracts", activeRentalContracts);
-		return "home/show_active_rental_contracts";
+		model.addAttribute("activeRentalContracts",activeRentalContracts);
+		return "home/active_rental_contracts";
 	}
 
 }
