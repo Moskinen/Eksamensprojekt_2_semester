@@ -2,6 +2,7 @@ package com.example.eksamensprojekt_2_semester.service;
 
 import java.util.List;
 
+import com.example.eksamensprojekt_2_semester.model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,11 @@ public class RentalContractService {
 
 	public List<RentalContract> getActiveRentalContracts() {
 		return rentalContractRepository.getActiveRentalContracts();
+	public List<Car> getTodaysRentals (){
+		return rentalContractRepository.getTodaysRentals();
+	}
+
+	public List<Car> getTodaysReturns(){
+		return rentalContractRepository.getTodaysReturns();
 	}
 }

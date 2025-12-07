@@ -3,6 +3,7 @@ package com.example.eksamensprojekt_2_semester.controller;
 import com.example.eksamensprojekt_2_semester.model.Admin;
 import com.example.eksamensprojekt_2_semester.service.AdminService;
 import com.example.eksamensprojekt_2_semester.service.CarService;
+import com.example.eksamensprojekt_2_semester.service.RentalContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,8 @@ public class AdminController {
 
     @Autowired
     CarService carService;
+    @Autowired
+    private RentalContractService rentalContractService;
 
     @GetMapping("/login")
     public String login(){
@@ -49,9 +52,11 @@ public class AdminController {
         return "home/allCarsAdmin";
     }
 
-    @GetMapping ("/todaysRentals")
-    public String todaysRentals(){
-        return "home/todaysRentals";
+    @GetMapping ("/rentals")
+    public String todaysRentals(Model model){
+        model.addAttribute("todaysRentals", rentalContractService.getTodaysRentals());
+        model.addAttribute("todaysReturns", rentalContractService.getTodaysReturns());
+        return ("home/todaysRentals");
     }
 
 

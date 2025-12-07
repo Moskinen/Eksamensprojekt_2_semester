@@ -2,6 +2,7 @@ package com.example.eksamensprojekt_2_semester.repository.impl;
 
 import java.util.List;
 
+import com.example.eksamensprojekt_2_semester.model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -43,5 +44,18 @@ public class RentalContractRepositoryImpl implements RentalContractRepository {
 		RowMapper<RentalContract> rowMapper = new BeanPropertyRowMapper<>(RentalContract.class);
 		return template.query(sql, rowMapper);
 	}
+
+	public List<Car> getTodaysRentals () {
+		String sql = "SELECT car.* FROM rental_contract JOIN car ON rental_contract.car_id = car.id WHERE rental_contract.to_date_time = CURDATE()";
+		RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
+		return template.query(sql, rowMapper);
+	}
+
+	public List<Car> getTodaysReturns() {
+		String sql = "SELECT car.* FROM rental_contract JOIN car ON rental_contract.car_id = car.id WHERE rental_contract.from_date_time = CURDATE()";
+		RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
+		return template.query(sql, rowMapper);
+	}
+
 
 }
