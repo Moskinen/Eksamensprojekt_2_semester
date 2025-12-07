@@ -38,4 +38,11 @@ public class RentalContractRepositoryImpl implements RentalContractRepository {
 		return getRentalContractById(id) != null;
 	}
 
+	//Method to return average rental period for rental contracts in days
+	public int getAverageRentalPeriod(){
+		int averageRentalPeriod = 0;
+		String sql = "SELECT AVG(DATEDIFF(to_date_time, from_date_time)) as avg_contract_length_days FROM rental_contract";
+		return averageRentalPeriod;
+	}
+
 }

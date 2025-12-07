@@ -13,4 +13,6 @@ public interface RentalContractRepository {
 	RentalContract getRentalContractById(int id);
 
 	boolean hasRentalContract(int id);
+
+	int getAverageRentalPeriod();
 }

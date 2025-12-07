@@ -29,4 +29,9 @@ public class RentalContractService {
 	public boolean hasRentalContract(int id){
 		return getRentalContractById(id) != null;
 	}
-}
+
+	public int getAverageRentalPeriod(){
+		return rentalContractRepository.getAverageRentalPeriod();
+		}
+	}
+
