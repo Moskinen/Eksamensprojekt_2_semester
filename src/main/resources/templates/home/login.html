@@ -19,8 +19,12 @@
 
 <h1 class="login-h1">Log in</h1>
 
+<div th:if="${errorMessage}" class="error-message">
+    <p th:text="${errorMessage}"></p>
+</div>
+
 <div class="login">
-    <form action="/admin_index" method="post">
+    <form action="/login" method="post">
         <div class="login-username">
             <label for="username">Brugernavn:</label>
             <input type="text" id="username" name="username" placeholder="Indtast brugernavn">
