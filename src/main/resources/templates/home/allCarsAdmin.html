@@ -24,7 +24,9 @@
 </div>
 
 <div class="create-car-button">
-    <button class="create-car" href="home/create-car">Opret</button>
+    <form th:action="@{/create-car}" method="get">
+        <button type="submit" class="create-car">Opret</button>
+    </form>
 </div>
 
 
@@ -47,7 +49,7 @@
         <td th:text="${car.model}"></td>
         <td th:text="${car.color}"></td>
         <td th:text="${car.location}"></td>
-        <td><a class="edit-car" href="home/update-car">Rediger</a></td>
+        <td><a class="edit-car" th:href="@{/update-car(id=${car.id})}">Rediger</a></td>
     </tr>
     </tbody>
 </table>

@@ -1,38 +1,49 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/style.css">
 
 <head>
 	<title>Cars</title>
 </head>
 
+<nav>
+	<a href="/"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
+	<div class="nav-links">
+		<a href="/cars">Lej bil</a>
+		<a href="/cars">Køb bil</a>
+		<a href="/faq">FAQ</a>
+	</div>
+</nav>
 
-<table>
-	<thead>
-		<tr>
-			<th>Image</th>
-			<th>Brand</th>
-			<th>Model</th>
-			<th>Steel</th>
-			<th>Color</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr th:each="car : ${cars}">
+<div class="all-cars-description">
+	Herunder ses alle bilerne i vores sortiment.
+</div>
 
-			<!-- Display image if present -->
-			<td>
-				<a th:href="@{/show-specific-car(id=${car.id})}">
-				<img th:if="${car.imageBase64 != null}"
-					th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
-					style="width:150px; height:auto;" />
-				</a>
-			</td>
+<div class="all-cars-list">
 
-			<td th:text="${car.brand}"></td>
-			<td th:text="${car.model}"></td>
-			<td th:text="${car.steelPrice}"></td>
-			<td th:text="${car.color}"></td>
+	<div th:each="car : ${cars}" class="car-boxes">
 
-		</tr>
-	</tbody>
-</table>
+		<!-- Clickable image -->
+		<a th:href="@{/show-specific-car(id=${car.id})}">
+			<img th:if="${car.imageBase64 != null}"
+				 th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
+				 class="car-image"/>
+		</a>
+
+		<div class="car-info">
+
+			<h3>Mærke:</h3>
+			<p th:text="${car.brand}"></p>
+
+			<h3>Model:</h3>
+			<p th:text="${car.model}"></p>
+
+			<h3>Skrotpris:</h3>
+			<p th:text="${car.steelPrice}"></p>
+
+			<h3>Farve:</h3>
+			<p th:text="${car.color}"></p>
+
+		</div>
+	</div>
+</div>

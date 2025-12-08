@@ -7,6 +7,15 @@
 </head>
 <body>
 
+<nav>
+    <a href="/"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
+    <div class="nav-links">
+        <a href="/cars">Lej bil</a>
+        <a href="/cars">Køb bil</a>
+        <a href="/faq">FAQ</a>
+    </div>
+</nav>
+
 <h1>Bilinformation</h1>
 
 <div class="page-structure">
@@ -79,7 +88,7 @@
         <div class="buy-button">
             <a href="home/createUser">
                 <button type="submit"
-                        th:attr="disabled=${isDamaged or isRented or isSold}">
+                        th:attr="disabled=${isDamaged or isSold}">
                     Køb bilen
                 </button>
             </a>

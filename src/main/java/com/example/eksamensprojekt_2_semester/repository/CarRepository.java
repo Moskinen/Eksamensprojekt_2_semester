@@ -17,4 +17,6 @@ public interface CarRepository {
     Car getCarById(int id);
 
     int getTotalCars();
+
+    List<Car> getFirstThreeCars();
 }

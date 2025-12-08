@@ -12,6 +12,8 @@ import java.util.List;
 public class CarRepositoryImpl implements CarRepository {
     @Autowired
     JdbcTemplate template;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public List<Car> getAllCars() {
@@ -50,6 +52,13 @@ public class CarRepositoryImpl implements CarRepository {
     public int getTotalCars(){
         String sql = "SELECT COUNT(*) FROM car";
         return template.queryForObject(sql, Integer.class);
+    }
+
+    @Override
+    public List<Car> getFirstThreeCars(){
+        String sql = "SELECT * FROM car ORDER BY id LIMIT 3";
+        RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
+        return jdbcTemplate.query(sql, rowMapper);
     }
 
 
