@@ -7,6 +7,7 @@ public class RentalContract {
 	private LocalDateTime fromDateTime;
 	private LocalDateTime toDateTime;
 	private int maxKm;
+    private double monthlyPrice;
 	private boolean unlimited;
 	private boolean active;
 	private int userId;
@@ -17,7 +18,7 @@ public class RentalContract {
 	}
 
 	public RentalContract(int id, LocalDateTime fromDateTime, LocalDateTime toDateTime, int maxKm, boolean unlimited,
-			boolean active, int userId, int carId, int vehicleReportId) {
+			boolean active, int userId, int carId, int vehicleReportId, double monthlyPrice) {
 		this.id = id;
 		this.fromDateTime = fromDateTime;
 		this.toDateTime = toDateTime;
@@ -27,6 +28,7 @@ public class RentalContract {
 		this.userId = userId;
 		this.carId = carId;
 		this.vehicleReportId = vehicleReportId;
+        this.monthlyPrice = monthlyPrice;
 	}
 
 	public int getId() {
@@ -101,5 +103,11 @@ public class RentalContract {
 		this.vehicleReportId = vehicleReportId;
 	}
 
+    public double getMonthlyPrice() {
+        return monthlyPrice;
+    }
 
+    public void setMonthlyPrice(double monthlyPrice) {
+        this.monthlyPrice = monthlyPrice;
+    }
 }

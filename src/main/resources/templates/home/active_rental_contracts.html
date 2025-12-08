@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Active Rental Contracts</title>
+</head>
+<body>
+<div>
+    <h1>Active Rental Contracts</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Contract ID</th>
+            <th>Car ID</th>
+            <th>From Date</th>
+            <th>To Date</th>
+            <th>Max KM</th>
+            <th>Unlimited</th>
+            <th>Monthly Price (DKK)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="contract : ${rentalContracts}">
+            <td th:text="${contract.id}"></td>
+            <td th:text="${contract.carId}"></td>
+            <td th:text="${#temporals.format(contract.fromDateTime, 'dd-MM-yyyy HH:mm')}"></td>
+            <td th:text="${#temporals.format(contract.toDateTime, 'dd-MM-yyyy HH:mm')}"></td>
+            <td th:text="${contract.maxKm}"></td>
+            <td th:text="${contract.unlimited ? 'Yes' : 'No'}"></td>
+            <td class="price" th:text="${#numbers.formatDecimal(contract.monthlyPrice, 1, 2)} + ' DKK'"></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td><strong>Total Sum:</strong></td>
+            <td th:text="${#numbers.formatDecimal(totalSum, 1, 2)} + ' DKK'"></td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+</body>
+</html>

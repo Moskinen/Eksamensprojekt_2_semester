@@ -1,5 +1,7 @@
 package com.example.eksamensprojekt_2_semester.controller;
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.eksamensprojekt_2_semester.service.PurchaseContractService;
@@ -68,7 +70,7 @@ public class CarController {
 	}
 
 	@GetMapping("/show-specific-car")
-	public String showSpecificCar(@RequestParam int id, Model model){
+	public String showSpecificCar(@RequestParam int id, Model model) {
 		Car car = carService.getCarById(id);
 
 		boolean isRented = rentalContractService.hasRentalContract(id);
@@ -81,4 +83,18 @@ public class CarController {
 		model.addAttribute("isDamaged", isDamaged);
 		return "home/show_specific_car";
 	}
+
+	@GetMapping("/cars/fragment")
+	public String getCarsFragment(@RequestParam String location, @RequestParam String availability, Model model) {
+
+		List<Car> cars = new ArrayList<>();
+
+		cars = carService.getCarByAvailabilityAndLocation(availability, location);
+
+		model.addAttribute("cars", cars);
+
+		return "home/showAllCars :: carList";
+
+	}
+
 }
