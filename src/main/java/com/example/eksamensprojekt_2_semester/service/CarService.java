@@ -33,14 +33,13 @@ public class CarService {
 		return carRepository.deleteCar(id);
 	}
 
-	public Car getCarById(int id) {
-		return carRepository.getCarById(id);
-	}
+	public Car getCarById(int id) { return carRepository.getCarById(id); }
 
 	public int getTotalCars() {
 		return carRepository.getTotalCars();
 	}
 
+	public List<Car> getFirstThreeCars() {return carRepository.getFirstThreeCars(); }
 	public List<Car> getCarByAvailabilityAndLocation(String availability, String location) {
 		return carRepository.getCarByAvailabilityAndLocation(availability, location);
 	}

@@ -18,6 +18,8 @@ public interface CarRepository {
 
     int getTotalCars();
 
+    List<Car> getFirstThreeCars();
+
     List<Car> getCarByAvailabilityAndLocation(String availability, String location);
 
 

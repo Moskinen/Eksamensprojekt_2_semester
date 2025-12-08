@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/style.css">
 
 <head>
 	<title>Cars</title>
 </head>
 
+<nav>
+	<a href="/"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
+	<div class="nav-links">
+		<a href="/cars">Lej bil</a>
+		<a href="/cars">Køb bil</a>
+		<a href="/faq">FAQ</a>
+	</div>
+</nav>
 
+<div class="all-cars-description">
+	Herunder ses alle bilerne i vores sortiment.
+</div>
+
+<div class="all-cars-list">
+
+	<div th:each="car : ${cars}" class="car-boxes">
+
+		<!-- Clickable image -->
+		<a th:href="@{/show-specific-car(id=${car.id})}">
+			<img th:if="${car.imageBase64 != null}"
+				 th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
+				 class="car-image"/>
+		</a>
+
+		<div class="car-info">
+
+			<h3>Mærke:</h3>
+			<p th:text="${car.brand}"></p>
+
+			<h3>Model:</h3>
+			<p th:text="${car.model}"></p>
+
+			<h3>Skrotpris:</h3>
+			<p th:text="${car.steelPrice}"></p>
+
+			<h3>Farve:</h3>
+			<p th:text="${car.color}"></p>
+
+		</div>
+	</div>
+</div>
 <div>
 	<label>Lokation:</label>
 	<select id="location-filter" onchange="sortCars()">

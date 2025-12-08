@@ -16,6 +16,8 @@ import java.util.Objects;
 public class CarRepositoryImpl implements CarRepository {
     @Autowired
     JdbcTemplate template;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public List<Car> getAllCars() {
@@ -57,6 +59,13 @@ public class CarRepositoryImpl implements CarRepository {
         return template.queryForObject(sql, Integer.class);
     }
 
+    @Override
+    public List<Car> getFirstThreeCars(){
+        String sql = "SELECT * FROM car ORDER BY id LIMIT 3";
+        RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
+        return jdbcTemplate.query(sql, rowMapper);
+    }
+    @Override
     public List<Car> getCarByAvailabilityAndLocation(String availability, String location) {
 
         String sql = "SELECT c.* FROM car c ";
@@ -82,7 +91,6 @@ public class CarRepositoryImpl implements CarRepository {
 
             sql += " AND c.location = ?";
             params.add(location);
-
 
         }
 
