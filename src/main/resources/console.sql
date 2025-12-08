@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS rental_contract(
     to_date_time      DATETIME,
     max_km            INT(10),
     unlimited         boolean,
+    monthly_price     DOUBLE,
     active            boolean,
     user_id           INT(10),
     car_id            INT(10),

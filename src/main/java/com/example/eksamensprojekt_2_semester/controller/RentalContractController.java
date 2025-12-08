@@ -32,7 +32,9 @@ public class RentalContractController {
 	@GetMapping("/show-active-rental-contracts")
 	public String showActiveRentalContracts(Model model) {
 		List<RentalContract> activeRentalContracts = rentalContractService.getActiveRentalContracts();
+        double totalSum = rentalContractService.getTotalSum(activeRentalContracts);
 		model.addAttribute("activeRentalContracts",activeRentalContracts);
+        model.addAttribute("totalSum", totalSum);
 		return "home/active_rental_contracts";
 	}
 
