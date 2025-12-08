@@ -37,7 +37,14 @@ public class CarService {
 		return carRepository.getCarById(id);
 	}
 
-	public int  getTotalCars(){
+	public int getTotalCars() {
 		return carRepository.getTotalCars();
 	}
+
+	public List<Car> getCarByAvailabilityAndLocation(String availability, String location) {
+		return carRepository.getCarByAvailabilityAndLocation(availability, location);
+	}
+
 }
+
+

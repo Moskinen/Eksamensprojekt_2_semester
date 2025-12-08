@@ -17,4 +17,8 @@ public interface CarRepository {
     Car getCarById(int id);
 
     int getTotalCars();
+
+    List<Car> getCarByAvailabilityAndLocation(String availability, String location);
+
+
 }
