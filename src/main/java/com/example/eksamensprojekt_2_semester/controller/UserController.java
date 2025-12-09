@@ -26,20 +26,20 @@ public class UserController {
     }
 
     @GetMapping("/create-user")
-    public String showCreateUserForm(@RequestParam int id, Model model) {
-        Car car = carService.getCarById(id);
+    public String showCreateUserForm(@RequestParam int carId, Model model) {
+        Car car = carService.getCarById(carId);
         model.addAttribute("car", car);
         model.addAttribute("user", new User());
         return "home/create-user";
     }
 
     @PostMapping("/create-user")
-    public String createUser(@ModelAttribute User user, @RequestParam int id, RedirectAttributes redirectAttributes){
+    public String createUser(@ModelAttribute User user, @RequestParam int carId, RedirectAttributes redirectAttributes){
 	
         User savedUser = userService.createUser(user);
-	redirectAttributes.addAttribute("carId", id);
+	redirectAttributes.addAttribute("carId", carId);
 	redirectAttributes.addAttribute("userId", savedUser.getId());
-        return "redirect:/rental-contract-create";
+        return "redirect:/create-rental-contract";
     }
 
 }
