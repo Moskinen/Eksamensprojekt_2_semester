@@ -1,7 +1,6 @@
 package com.example.eksamensprojekt_2_semester.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.example.eksamensprojekt_2_semester.service.PurchaseContractService;
@@ -35,13 +34,13 @@ public class CarController {
 	public String listCars(Model model) {
 		List<Car> cars = carService.getCarByAvailabilityAndLocation("Køb og leje", "Alle");
 		model.addAttribute("cars", cars);
-		return "home/showAllCars";
+		return "home/cars";
 	}
 
 	@GetMapping("/create-car")
 	public String showCreateForm(Model model) {
 		model.addAttribute("car", new Car());
-		return "home/admin_car_create";
+		return "home/admin-create-car";
 	}
 
 	@PostMapping("/create-car")
@@ -57,7 +56,7 @@ public class CarController {
 	public String showUpdateForm(@RequestParam int id, Model model) {
 		Car car = carService.getCarById(id);
 		model.addAttribute("car", car);
-		return "home/admin_car_update";
+		return "home/admin-update-car";
 	}
 
 	@PostMapping("/update-car")
@@ -66,7 +65,7 @@ public class CarController {
 			car.setImage(imageFile.getBytes());
 		}
 		carService.updateCar(car);
-		return "redirect:/allCarsAdmin";
+		return "redirect:/update-car";
 	}
 
 	@GetMapping("/show-specific-car")
@@ -81,7 +80,7 @@ public class CarController {
 		model.addAttribute("isRented", isRented);
 		model.addAttribute("isSold", isSold);
 		model.addAttribute("isDamaged", isDamaged);
-		return "home/show_specific_car";
+		return "home/view-car";
 	}
 
 	@GetMapping("/cars/fragment")
@@ -93,7 +92,7 @@ public class CarController {
 
 		model.addAttribute("cars", cars);
 
-		return "home/showAllCars :: car-list";
+		return "home/cars :: car-list";
 
 	}
 
