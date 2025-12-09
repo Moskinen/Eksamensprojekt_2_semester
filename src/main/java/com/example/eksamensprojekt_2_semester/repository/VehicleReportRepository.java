@@ -10,4 +10,6 @@ public interface VehicleReportRepository {
 
     List<VehicleReport> getAllVehicleReports();
 
+    void calculateTotalCost(int vehicleReportId);
+
 }

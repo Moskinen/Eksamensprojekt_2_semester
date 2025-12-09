@@ -29,4 +29,12 @@ public class VehicleReportRepositoryImpl implements VehicleReportRepository {
         return template.query(sql, rowMapper);
     }
 
+    @Override
+    public void calculateTotalCost(int vehicleReportId) {
+
+        String sql = "UPDATE vehicle_report SET totalCost =  ( SELECT COALESCE(SUM(price), 0) FROM damage WHERE vehicle_report_id = ?) WHERE id = ?";
+        template.update(sql, vehicleReportId, vehicleReportId);
+
+    }
+
 }

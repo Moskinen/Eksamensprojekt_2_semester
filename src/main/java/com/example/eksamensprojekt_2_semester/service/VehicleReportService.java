@@ -19,6 +19,11 @@ public class VehicleReportService {
 
     public List<VehicleReport> getAllVehicleReports() {
         return vehicleReportRepository.getAllVehicleReports();
+
+    }
+
+    public void calculateTotalCost(int vehicleReportId) {
+        vehicleReportRepository.calculateTotalCost(vehicleReportId);
     }
 
 }
