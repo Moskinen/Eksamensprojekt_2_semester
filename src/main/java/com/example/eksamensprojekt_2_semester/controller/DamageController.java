@@ -18,7 +18,7 @@ public class DamageController {
         this.damageService = damageService;
     }
 
-    @GetMapping("/updateVehicleReport")
+    @GetMapping("/admin-update-vehicle-report")
     public String showDamages(@RequestParam ("id") int vehicleReportId, Model model) {
 
         List<Damage> damages = damageService.fetchDamageById(vehicleReportId);
