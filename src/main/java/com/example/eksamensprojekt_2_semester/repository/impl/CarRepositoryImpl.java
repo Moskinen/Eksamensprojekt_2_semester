@@ -64,6 +64,28 @@ public class CarRepositoryImpl implements CarRepository {
         RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
         return jdbcTemplate.query(sql, rowMapper);
     }
+
+    public List<Car> getHighlightedCars() {
+
+        String sql = "SELECT * FROM car WHERE highlighted = true";
+        RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
+
+        return jdbcTemplate.query(sql, rowMapper);
+
+    }
+
+    public void updateHighlightedCars(int oldCarId, int newCarId) {
+
+        RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
+
+        String sql1 = "UPDATE car SET highlighted = false WHERE oldCarId = ?";
+        jdbcTemplate.update(sql1, rowMapper, oldCarId);
+
+        String sql2 = "UPDATE car SET highlighted = true WHERE newCarId = ?";
+        jdbcTemplate.update(sql2, rowMapper, newCarId);
+
+    }
+
     @Override
     public List<Car> getCarByAvailabilityAndLocation(String availability, String location) {
 

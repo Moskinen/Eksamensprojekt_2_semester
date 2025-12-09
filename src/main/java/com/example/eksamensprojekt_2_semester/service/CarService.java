@@ -1,5 +1,6 @@
 package com.example.eksamensprojekt_2_semester.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import com.example.eksamensprojekt_2_semester.repository.CarRepository;
 @Service
 public class CarService {
 	private final CarRepository carRepository;
+	private CarService carService;
 
 	@Autowired
 	public CarService(CarRepository carRepository) {
@@ -40,6 +42,14 @@ public class CarService {
 	}
 
 	public List<Car> getFirstThreeCars() {return carRepository.getFirstThreeCars(); }
+
+	public List<Car> getHighlightedCars() {
+		return carRepository.getHighlightedCars();
+	}
+
+	public void updateHighlightedCars(int oldCarId, int newCarId) {
+		carRepository.updateHighlightedCars(oldCarId, newCarId);
+	}
 
 	public List<Car> getCarByAvailabilityAndLocation(String availability, String location) {
 		return carRepository.getCarByAvailabilityAndLocation(availability, location);

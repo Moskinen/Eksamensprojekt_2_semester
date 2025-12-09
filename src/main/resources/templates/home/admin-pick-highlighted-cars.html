@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+<nav>
+    <a href="/admin-index"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
+    <div class="nav-links">
+        <a href="/admin-index">KPI</a>
+        <a href="/admin-active-rental-contracts">Aktive udlejninger</a>
+        <a href="/admin-rentals-today">Dagens udlejninger</a>
+        <a href="/admin-cars">Biler</a>
+        <a href="/admin-login" class="log-out">Log ud</a>
+    </div>
+</nav>
+
+<div class="page-info">
+    <h1>Vælg fremhævede biler til forsiden</h1>
+    <p>På denne side, kan de vælge de biler, de ønsker at fremhæve på forsiden. Der skal vælges 3.</p>
+</div>
+
+<table class="list-of-cars">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Color</th>
+        <th>Location</th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="car : ${cars}">
+        <td th:text="${car.id}"></td>
+        <td th:text="${car.brand}"></td>
+        <td th:text="${car.model}"></td>
+        <td th:text="${car.color}"></td>
+        <td th:text="${car.location}"></td>
+        <form th:action="@{/index-highlight}" method="post">
+            <input type="hidden" name="carId" th:value="${car.id}">
+            <button id="car" type="submit">Fremhæv bil</button>
+        </form>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+
+</html>

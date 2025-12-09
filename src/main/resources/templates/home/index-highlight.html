@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="page-info">
+    <h1>Rediger fremhævede biler</h1>
+    <p> Vælg de fremhævede biler til forsiden</p>
+</div>
+
+<div class="cars-list">
+
+    <div th:each="car, iterStat : ${firstThreeCars}" class="car-boxes">
+
+        <!-- Display image if present -->
+        <a th:href="@{/view-car(id=${car.id})}">
+            <img th:if="${car.imageBase64 != null}"
+                 th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"/>
+        </a>
+
+
+        <div class="car-info">
+            <div>
+                <h3>Mærke:</h3>
+                <p th:text="${car.brand}"></p>
+            </div>
+            <div>
+                <h3>Model:</h3>
+                <p th:text="${car.model}"></p>
+            </div>
+            <div>
+                <h3>Skrotpris:</h3>
+                <p th:text="${car.steelPrice}"></p>
+            </div>
+            <div>
+                <h3>Farve:</h3>
+                <p th:text="${car.color}"></p>
+            </div>
+        </div>
+        <div>
+            <form th:action="@{/pick-highlighted-cars}" method="post">
+                <input type="hidden" name="replaceIndex" th:value="${iterStat.index}">
+                <button id="car" type="submit">Vælg ny bil</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

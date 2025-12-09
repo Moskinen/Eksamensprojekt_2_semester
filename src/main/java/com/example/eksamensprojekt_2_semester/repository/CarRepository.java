@@ -20,7 +20,12 @@ public interface CarRepository {
 
     List<Car> getFirstThreeCars();
 
+    List<Car> getHighlightedCars();
+
+    void updateHighlightedCars(int oldCarId, int newCarId);
+
     List<Car> getCarByAvailabilityAndLocation(String availability, String location);
+
 
 
 }
