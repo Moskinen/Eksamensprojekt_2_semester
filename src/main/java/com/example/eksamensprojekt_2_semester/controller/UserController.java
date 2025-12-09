@@ -39,7 +39,7 @@ public class UserController {
         User savedUser = userService.createUser(user);
 	redirectAttributes.addAttribute("carId", carId);
 	redirectAttributes.addAttribute("userId", savedUser.getId());
-        return "redirect:/rental-contract-create";
+        return "redirect:/create-rental-contract";
     }
 
 }
