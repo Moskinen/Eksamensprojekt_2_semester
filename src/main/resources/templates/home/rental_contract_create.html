@@ -23,7 +23,7 @@
 		<form th:action="@{/create-rental-contract}" th:object="${rental_contract}" method="post"
 			class="CRUD-form">
 
-			<input type="hidden" th:field="*{carId}" />
+			<input type="hidden" name="id" th:value="${car.id}" />
 			<input type="hidden" th:field="*{userId}" />
 
 			<div>
