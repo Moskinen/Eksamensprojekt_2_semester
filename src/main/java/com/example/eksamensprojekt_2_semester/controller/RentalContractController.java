@@ -42,7 +42,7 @@ public class RentalContractController {
 		model.addAttribute("rental_contract", rentalContract); 
 		model.addAttribute("car", car);
 		model.addAttribute("user", user);
-		return "home/rental_contract_create";
+		return "home/create-rental-contract";
 	}
 
 	@PostMapping("/create-rental-contract")
@@ -52,13 +52,13 @@ public class RentalContractController {
 		return "redirect:/create-rental-contract";
 	}
 
-	@GetMapping("/show-active-rental-contracts")
+	@GetMapping("/admin-active-rental-contracts")
 	public String showActiveRentalContracts(Model model) {
 		List<RentalContract> activeRentalContracts = rentalContractService.getActiveRentalContracts();
         double totalSum = rentalContractService.getTotalSum(activeRentalContracts);
 		model.addAttribute("activeRentalContracts",activeRentalContracts);
         model.addAttribute("totalSum", totalSum);
-		return "home/active_rental_contracts";
+		return "home/admin-active-rental-contracts";
 	}
 
 }

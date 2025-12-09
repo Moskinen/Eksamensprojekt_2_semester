@@ -26,7 +26,7 @@ public class DamageController {
         model.addAttribute("damages", damages);
         model.addAttribute("vehicleReportId", vehicleReportId);
 
-        return "home/updateVehicleReport";
+        return "home/admin-update-vehicle-report";
 
     }
 
@@ -37,7 +37,7 @@ public class DamageController {
 
         damageService.updateAllDamagesById(name, price, vehicleReportId);
 
-        return "redirect:/admin_index";
+        return "redirect:/admin-index";
 
     }
 

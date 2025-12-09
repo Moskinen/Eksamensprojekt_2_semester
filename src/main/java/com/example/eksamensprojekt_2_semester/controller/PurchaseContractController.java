@@ -18,7 +18,7 @@ public class PurchaseContractController{
 	@GetMapping("/create-purchase-contract")
 	public String showCreateForm(Model model) {
 		model.addAttribute("purchase_contract", new PurchaseContract());
-		return "home/purchase_contract_create";
+		return "home/create-purchase-contract";
 	}
 
 	@PostMapping("/create-purchase-contract")

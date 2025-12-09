@@ -32,12 +32,12 @@ public class AdminController {
     @Autowired
     private VehicleReportService vehicleReportService;
 
-    @GetMapping("/login")
+    @GetMapping("/admin-login")
     public String login(@RequestParam (value = "error", required = false) String error, Model model){
         if (error != null) {
             model.addAttribute("errorMessage", "Forkert brugernavn eller kodeord");
         }
-        return "home/login";
+        return "home/admin-login";
     }
 
     //Handles login form submission if it fails the user is sent back to login
@@ -47,36 +47,36 @@ public class AdminController {
         Admin admin = adminService.getAdmin();
 
         if (admin.getUsername().equals(username) && admin.getPassword().equals(pwd)) {
-            return "redirect:/admin_index";
+            return "redirect:/admin-index";
         } else {
             redirectAttributes.addAttribute("error", "true");
-            return "redirect:/login";
+            return "redirect:/admin-login";
         }
     }
 
-    @GetMapping ("/admin_index")
+    @GetMapping ("/admin-index")
     public String admin_index(Model model){
         List<RentalContract> totalRentedCars = rentalContractService.getActiveRentalContracts();
         int averageRentalPeriod = rentalContractService.getAverageRentalPeriod();
         model.addAttribute("totalRentedCars", totalRentedCars);
         model.addAttribute("averageRentalPeriod", averageRentalPeriod);
-        return "home/admin_index";
+        return "home/admin-index";
     }
 
-    @GetMapping ("/allCarsAdmin")
+    @GetMapping ("/admin-cars")
     public String allCarsAdmin(Model model){
         List<VehicleReport> vehicleReports = vehicleReportService.getAllVehicleReports();
         List<Car> cars = carService.getAllCars();
         model.addAttribute("cars", cars);
         model.addAttribute("vehicleReports", vehicleReports);
-        return "home/allCarsAdmin";
+        return "home/admin-cars";
     }
 
-    @GetMapping ("/rentals")
+    @GetMapping ("/admin-rentals-today")
     public String todaysRentals(Model model){
         model.addAttribute("todaysRentals", rentalContractService.getTodaysRentals());
         model.addAttribute("todaysReturns", rentalContractService.getTodaysReturns());
-        return ("home/todaysRentals");
+        return ("home/admin-rentals-today");
     }
 
 

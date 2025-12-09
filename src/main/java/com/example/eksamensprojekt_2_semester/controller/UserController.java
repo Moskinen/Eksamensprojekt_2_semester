@@ -30,7 +30,7 @@ public class UserController {
         Car car = carService.getCarById(id);
         model.addAttribute("car", car);
         model.addAttribute("user", new User());
-        return "home/createUser";
+        return "home/create-user";
     }
 
     @PostMapping("/create-user")
