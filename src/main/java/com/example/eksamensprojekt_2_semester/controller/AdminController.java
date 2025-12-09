@@ -58,9 +58,11 @@ public class AdminController {
     public String admin_index(Model model){
         List<RentalContract> totalRentedCars = rentalContractService.getActiveRentalContracts();
         int averageRentalPeriod = rentalContractService.getAverageRentalPeriod();
+        double totalRentalSum = rentalContractService.getTotalSum(totalRentedCars);
         model.addAttribute("totalRentedCars", totalRentedCars);
         model.addAttribute("averageRentalPeriod", averageRentalPeriod);
-        return "home/admin-index";
+        model.addAttribute("totalRentalSum", totalRentalSum);
+        return "home/admin_index";
     }
 
     @GetMapping ("/admin-cars")
