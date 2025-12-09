@@ -45,7 +45,7 @@
             <td th:text="${contract.maxKm}"></td>
             <td th:text="${contract.unlimited ? 'Yes' : 'No'}"></td>
             <td class="price" th:text="${#numbers.formatDecimal(contract.monthlyPrice, 1, 2)} + ' DKK'"></td>
-            <td><a th:href="@{/updateVehicleReport(id=${contract.vehicleReportId})}"><button>Håndter fejl og mangler</button></a></td>
+            <td><a th:href="@{/admin-update-vehicle-report(id=${contract.vehicleReportId})}"><button>Håndter fejl og mangler</button></a></td>
         </tr>
         </tbody>
         <tfoot>

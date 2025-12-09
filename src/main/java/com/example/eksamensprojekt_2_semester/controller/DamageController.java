@@ -30,7 +30,7 @@ public class DamageController {
 
     }
 
-    @PostMapping("/updateVehicleReport")
+    @PostMapping("/admin-update-vehicle-report")
     public String updateVehicleReport(@RequestParam(required = false) List<String> name,
                                       @RequestParam(required = false) List<Integer> price,
                                       @RequestParam int vehicleReportId) {
