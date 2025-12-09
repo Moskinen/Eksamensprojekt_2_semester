@@ -17,6 +17,12 @@ public class VehicleReportRepositoryImpl implements VehicleReportRepository {
     JdbcTemplate template;
 
     @Override
+    public void createNewVehicleReport(VehicleReport vehicleReport) {
+        String sql = "INSERT INTO vehicle_report(id) VALUES (DEFAULT)";
+        template.update(sql, vehicleReport.getId());
+    }
+
+    @Override
     public List<VehicleReport> getAllVehicleReports() {
         String sql = "SELECT * FROM vehicle_report";
         RowMapper<VehicleReport> rowMapper = new BeanPropertyRowMapper<>(VehicleReport.class);
