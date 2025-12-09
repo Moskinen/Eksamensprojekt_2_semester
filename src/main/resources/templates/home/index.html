@@ -31,8 +31,7 @@
         <!-- Display image if present -->
         <a th:href="@{/show-specific-car(id=${car.id})}">
             <img th:if="${car.imageBase64 != null}"
-                 th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
-                 style="width:150px; height:auto;"/>
+                 th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"/>
         </a>
 
 
@@ -68,8 +67,7 @@
         <!-- Clickable image -->
         <a th:href="@{/show-specific-car(id=${car.id})}">
             <img th:if="${car.imageBase64 != null}"
-                 th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
-                 class="car-image"/>
+                 th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"/>
         </a>
 
         <div class="car-info">

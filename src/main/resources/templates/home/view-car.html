@@ -16,17 +16,18 @@
     </div>
 </nav>
 
-<h1>Bilinformation</h1>
+<div class="page-info">
+    <h1>Bilinformation</h1>
+</div>
 
 <div class="page-structure">
 
-    <div class="car-picture">
+    <div class="car-img">
         <img th:if="${car.imageBase64 != null}"
-             th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
-             style="width:150px; height:auto;"/>
+             th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"/>
     </div>
 
-    <div class="CRUD-form centered-CRUD">
+    <div class="centered-CRUD">
         <div>
             <label>ID:</label>
             <span th:text="${car.id}"></span>
