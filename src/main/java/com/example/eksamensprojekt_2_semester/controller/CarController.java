@@ -33,7 +33,7 @@ public class CarController {
 
 	@GetMapping("/cars")
 	public String listCars(Model model) {
-		List<Car> cars = carService.getAllCars();
+		List<Car> cars = carService.getCarByAvailabilityAndLocation("Køb og leje", "Alle");
 		model.addAttribute("cars", cars);
 		return "home/showAllCars";
 	}
@@ -87,13 +87,13 @@ public class CarController {
 	@GetMapping("/cars/fragment")
 	public String getCarsFragment(@RequestParam String location, @RequestParam String availability, Model model) {
 
-		List<Car> cars = new ArrayList<>();
+		List<Car> cars;
 
 		cars = carService.getCarByAvailabilityAndLocation(availability, location);
 
 		model.addAttribute("cars", cars);
 
-		return "home/showAllCars :: carList";
+		return "home/showAllCars :: car-list";
 
 	}
 

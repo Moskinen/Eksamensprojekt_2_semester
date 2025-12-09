@@ -5,7 +5,7 @@
 <head>
     <title>Cars</title>
 </head>
-
+<body>
 <nav>
     <a href="/"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
     <div class="nav-links">
@@ -20,11 +20,11 @@
         <label>Lokation:</label>
         <select id="location-filter" onchange="sortCars()">
             <option th:value="Alle" th:text="'Alle'">Alle</option>
-            <option th:value="NORDJYLLAND" th:text="'NORDJYLLAND'">NORDJYLLAND</option>
-            <option th:value="MIDTJYLLAND" th:text="'MIDTJYLLAND'">MIDTJYLLAND</option>
-            <option th:value="SOENDERJYLLAND" th:text="'SOENDERJYLLAND'">SOENDERJYLLAND</option>
-            <option th:value="FYN" th:text="'FYN'">FYN</option>
-            <option th:value="SJAELLAND" th:text="'SJAELLAND'">SJAELLAND</option>
+            <option th:value="NORDJYLLAND" th:text="'Nordjylland'">NORDJYLLAND</option>
+            <option th:value="MIDTJYLLAND" th:text="'Midtjylland'">MIDTJYLLAND</option>
+            <option th:value="SOENDERJYLLAND" th:text="'Sønderjylland'">SOENDERJYLLAND</option>
+            <option th:value="FYN" th:text="'Fyn'">FYN</option>
+            <option th:value="SJAELLAND" th:text="'Sjælland'">SJAELLAND</option>
         </select>
     </div>
 
@@ -42,68 +42,40 @@
     <p>Herunder ses alle bilerne i vores sortiment.</p>
 </div>
 
-<div class="cars-list">
+<div id="car-list-container">
 
-    <div th:each="car : ${cars}" class="car-boxes">
+    <div class="cars-list" id="car-list" th:fragment="car-list">
 
-        <!-- Clickable image -->
-        <a th:href="@{/show-specific-car(id=${car.id})}">
-            <img th:if="${car.imageBase64 != null}"
-                 th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
-                 class="car-image"/>
-        </a>
+        <div th:each="car : ${cars}" class="car-boxes">
 
-        <div class="car-info">
-            <div>
-                <h3>Mærke:</h3>
-                <p th:text="${car.brand}"></p>
-            </div>
-            <div>
-                <h3>Model:</h3>
-                <p th:text="${car.model}"></p>
-            </div>
-            <div>
-                <h3>Skrotpris:</h3>
-                <p th:text="${car.steelPrice}"></p>
-            </div>
-            <div>
-                <h3>Farve:</h3>
-                <p th:text="${car.color}"></p>
+            <!-- Clickable image -->
+            <a th:href="@{/show-specific-car(id=${car.id})}">
+                <img th:if="${car.imageBase64 != null}"
+                     th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
+                     class="car-image"/>
+            </a>
+
+            <div class="car-info">
+                <div>
+                    <h3>Mærke:</h3>
+                    <p th:text="${car.brand}"></p>
+                </div>
+                <div>
+                    <h3>Model:</h3>
+                    <p th:text="${car.model}"></p>
+                </div>
+                <div>
+                    <h3>Skrotpris:</h3>
+                    <p th:text="${car.steelPrice}"></p>
+                </div>
+                <div>
+                    <h3>Farve:</h3>
+                    <p th:text="${car.color}"></p>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<table>
-    <thead>
-    <tr>
-        <th>Image</th>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Steel</th>
-        <th>Color</th>
-    </tr>
-    </thead>
-    <tbody id="carList" th:fragment="carList">
-    <tr th:each="car : ${cars}">
-
-        <!-- Display image if present -->
-        <td>
-            <a th:href="@{/show-specific-car(id=${car.id})}">
-                <img th:if="${car.imageBase64 != null}"
-                     th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
-                     style="width:150px; height:auto;"/>
-            </a>
-        </td>
-
-        <td th:text="${car.brand}"></td>
-        <td th:text="${car.model}"></td>
-        <td th:text="${car.steelPrice}"></td>
-        <td th:text="${car.color}"></td>
-
-    </tr>
-    </tbody>
-</table>
 
 <script>
 
@@ -114,9 +86,13 @@
 
         fetch("/cars/fragment?location=" + location + "&availability=" + availability)
             .then(res => res.text())
-            .then(html => document.querySelector("#carList").innerHTML = html)
+            .then(html => document.querySelector("#car-list-container").innerHTML = html)
 
     }
 
 
 </script>
+
+</body>
+
+</html>

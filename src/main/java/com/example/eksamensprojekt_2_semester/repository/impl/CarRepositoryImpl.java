@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Repository
 public class CarRepositoryImpl implements CarRepository {
@@ -74,17 +73,18 @@ public class CarRepositoryImpl implements CarRepository {
         if (availability.equals("Køb")) {
 
             sql += "LEFT JOIN purchase_contract p ON c.id = p.car_id " +
-                    "WHERE p.car_id IS null";
+                    "WHERE p.car_id IS NULL";
+
 
         } else if (availability.equals("Leje")) {
 
             sql += "LEFT JOIN rental_contract r ON c.id = r.car_id AND r.active = true " +
-                    "WHERE r.car_id IS null";
+                    "WHERE r.car_id IS NULL";
 
         } else {
             sql += "LEFT JOIN rental_contract r ON c.id = r.car_id AND r.active = true " +
                     "LEFT JOIN purchase_contract p ON c.id = p.car_id " +
-                    "WHERE r.car_id IS null ANd p.car_id IS null";
+                    "WHERE r.car_id IS NULL AND p.car_id IS NULL";
         }
 
         if (!(location.equals("Alle"))) {
