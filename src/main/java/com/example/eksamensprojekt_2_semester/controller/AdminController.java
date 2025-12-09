@@ -62,7 +62,7 @@ public class AdminController {
         model.addAttribute("totalRentedCars", totalRentedCars);
         model.addAttribute("averageRentalPeriod", averageRentalPeriod);
         model.addAttribute("totalRentalSum", totalRentalSum);
-        return "home/admin_index";
+        return "home/admin-index";
     }
 
     @GetMapping ("/admin-cars")
