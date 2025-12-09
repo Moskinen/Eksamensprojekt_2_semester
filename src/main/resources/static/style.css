@@ -33,6 +33,50 @@ button:disabled:hover {
     color: #666666;
 }
 
+/* ------------------------
+    CSS FOR CAR DISPLAY
+--------------------------*/
+.cars-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+    margin: 25px 50px;
+}
+
+.car-boxes {
+    background: #F2F2F2;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.car-boxes img {
+
+}
+
+.car-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 50px;
+}
+
+.car-info div {
+    display: flex;
+    flex-direction: column;
+}
+
+.car-info h3 {
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+.car-info p {
+    margin-top: 2px;
+}
+
 /* ------------------
     CSS FOR CRUD
 --------------------*/
@@ -83,11 +127,47 @@ button:disabled:hover {
     align-items: center;
 }
 
+/* ------------------
+    CSS FOR FAQ
+---------------------*/
+.faq-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px 0;
+}
+
+.faq-item {
+    background-color: #F2F2F2;
+    border-radius: 12px;
+    text-align: left;
+    align-items: center;
+    padding: 15px 25px;
+    margin: 0 50px;
+}
+
+.faq-item h3 {
+    text-align: center;
+
+}
+
+/* ------------------
+    CSS FOR FILTERS
+---------------------*/
+.filters {
+    display: flex;
+    justify-content: center;
+}
+
+.filters div {
+    margin: 0 15px;
+}
+
+
 /* -----------------------
      CSS FOR PAGE INFO
 -------------------------*/
 h1 {
-    margin-top: 50px;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
 }
@@ -101,7 +181,7 @@ h2 {
 
 .page-info p {
     text-align: center;
-    padding: 0 0 25px;
+    padding-bottom: 25px;
 }
 
 /* ------------------
@@ -184,8 +264,6 @@ nav a:hover {
     grid-template-columns: 1fr 1fr;
     margin-top: 75px;
 }
-
-
 
 /* -------------------
     CSS FOR TABLE

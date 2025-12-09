@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Active Rental Contracts</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <div>
@@ -19,8 +20,12 @@
     </nav>
 
     <h1>Active Rental Contracts</h1>
+    <div class="page-info">
+        <h1>Active Rental Contracts</h1>
+        <p>Her finder du en liste over alle aktive udlejninger</p>
+    </div>
 
-    <table>
+    <table class="list-of-cars">
         <thead>
         <tr>
             <th>Contract ID</th>
@@ -46,6 +51,14 @@
         </tbody>
         <tfoot>
         <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td><strong>Total Sum:</strong></td>
             <td th:text="${#numbers.formatDecimal(totalSum, 1, 2)} + ' DKK'"></td>
         </tr>
