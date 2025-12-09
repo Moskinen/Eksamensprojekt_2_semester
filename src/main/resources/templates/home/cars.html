@@ -9,8 +9,8 @@
 <nav>
     <a href="/"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
     <div class="nav-links">
-        <a href="/cars">Lej bil</a>
-        <a href="/cars">Køb bil</a>
+        <a href="/cars?availability=Leje">Lej bil</a>
+        <a href="/cars?availability=Køb">Køb bil</a>
         <a href="/faq">FAQ</a>
     </div>
 </nav>
@@ -32,8 +32,8 @@
         <label>Tilgængelighed:</label>
         <select id="availability-filter" onchange="sortCars()">
             <option th:value="'Køb og leje'" th:text="'Køb og leje'">Køb og leje</option>
-            <option th:value="'Køb'" th:text="'Køb'">Køb</option>
-            <option th:value="'Leje'" th:text="'Leje'">Leje</option>
+            <option th:value="Køb" th:text="Køb" th:selected="${availability == 'Køb'}">Køb</option>
+            <option th:value="Leje" th:text="Leje" th:selected="${availability == 'Leje'}">Leje</option>
         </select>
     </div>
 </div>
