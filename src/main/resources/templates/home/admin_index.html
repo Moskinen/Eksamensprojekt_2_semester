@@ -20,7 +20,7 @@
 
 <div class="KPI">
 
-    <p>Total antal biler: <span th:text="${totalCars}"></span></p>
+    <p>Udlejede biler ved dags dato: <span th:text="${#lists.size(totalRentedCars)}"></span></p>
     <p>Gennemsnitlige længde for lejeperiode: <span th:text="${averageRentalPeriod}"></span> antal dage</p>
 
 </div>

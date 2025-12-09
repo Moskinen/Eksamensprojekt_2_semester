@@ -66,7 +66,7 @@ public class CarController {
 			car.setImage(imageFile.getBytes());
 		}
 		carService.updateCar(car);
-		return "redirect:/update-car";
+		return "redirect:/allCarsAdmin";
 	}
 
 	@GetMapping("/show-specific-car")

@@ -22,4 +22,5 @@ public interface RentalContractRepository {
 	List<Car> getTodaysReturns();
 
     double getTotalSum(List<RentalContract> rentalContracts);
+
 }

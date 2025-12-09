@@ -2,6 +2,7 @@ package com.example.eksamensprojekt_2_semester.controller;
 
 import com.example.eksamensprojekt_2_semester.model.Admin;
 import com.example.eksamensprojekt_2_semester.model.Car;
+import com.example.eksamensprojekt_2_semester.model.RentalContract;
 import com.example.eksamensprojekt_2_semester.model.VehicleReport;
 import com.example.eksamensprojekt_2_semester.service.AdminService;
 import com.example.eksamensprojekt_2_semester.service.CarService;
@@ -55,9 +56,9 @@ public class AdminController {
 
     @GetMapping ("/admin_index")
     public String admin_index(Model model){
-        int totalCars = carService.getTotalCars();
+        List<RentalContract> totalRentedCars = rentalContractService.getActiveRentalContracts();
         int averageRentalPeriod = rentalContractService.getAverageRentalPeriod();
-        model.addAttribute("totalCars", totalCars);
+        model.addAttribute("totalRentedCars", totalRentedCars);
         model.addAttribute("averageRentalPeriod", averageRentalPeriod);
         return "home/admin_index";
     }
