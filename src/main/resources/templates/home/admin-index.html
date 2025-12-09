@@ -25,9 +25,9 @@
 
 <div class="KPI">
 
-    <a href="/show-active-rental-contracts">Udlejede biler ved dags dato: <span th:text="${#lists.size(totalRentedCars)}"></span></a>
+    <a href="/admin-active-rental-contracts">Udlejede biler ved dags dato: <span th:text="${#lists.size(totalRentedCars)}"></span></a>
     <p>Gennemsnitlige længde for lejeperiode: <span th:text="${averageRentalPeriod}"></span> antal dage</p>
-    <a href="/show-active-rental-contracts">Forventede omsætning for biludlejning i indeværende måned: <span th:text="${totalRentalSum}"></span> DKK</a>
+    <a href="/admin-active-rental-contracts">Forventede omsætning for biludlejning i indeværende måned: <span th:text="${totalRentalSum}"></span> DKK</a>
 </div>
 </body>
 </html>
