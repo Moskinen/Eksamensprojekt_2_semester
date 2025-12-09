@@ -22,7 +22,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User createUser(User user){
-        String sql = "INSERT INTO user (firstName, lastName, address, zip, phoneNumber, email, CPR) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO user (firstName, lastName, address, zip, phoneNumber, email, cpr) VALUES (?, ?, ?, ?, ?, ?, ?)";
 	KeyHolder keyHolder = new GeneratedKeyHolder();
 	
 	    template.update(connection -> {
