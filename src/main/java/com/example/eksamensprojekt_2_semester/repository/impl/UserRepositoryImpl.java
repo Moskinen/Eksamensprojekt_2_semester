@@ -4,7 +4,9 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -20,7 +22,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User createUser(User user){
-        String sql = "INSERT INTO user (firstName, lastName, address, zip, phoneNumber, email, CPR) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO user (firstName, lastName, address, zip, phoneNumber, email, cpr) VALUES (?, ?, ?, ?, ?, ?, ?)";
 	KeyHolder keyHolder = new GeneratedKeyHolder();
 	
 	    template.update(connection -> {
@@ -39,5 +41,12 @@ public class UserRepositoryImpl implements UserRepository {
     user.setId(keyHolder.getKey().intValue());
 	return user;
     }
+
+	public User getUserById(int id) {
+		String sql = "SELECT * FROM user WHERE id=?";
+        	RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
+        	User user = template.queryForObject(sql, rowMapper, id);
+       	 return user;
+	}
 
 }

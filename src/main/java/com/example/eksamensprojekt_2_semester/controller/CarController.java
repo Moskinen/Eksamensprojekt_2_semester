@@ -31,9 +31,10 @@ public class CarController {
 	}
 
 	@GetMapping("/cars")
-	public String listCars(Model model) {
-		List<Car> cars = carService.getCarByAvailabilityAndLocation("Køb og leje", "Alle");
+	public String listCars(Model model, String availability) {
+		List<Car> cars = carService.getCarByAvailabilityAndLocation(availability, "Alle");
 		model.addAttribute("cars", cars);
+		model.addAttribute("availability", availability);
 		return "home/cars";
 	}
 
@@ -86,9 +87,7 @@ public class CarController {
 	@GetMapping("/cars/fragment")
 	public String getCarsFragment(@RequestParam String location, @RequestParam String availability, Model model) {
 
-		List<Car> cars;
-
-		cars = carService.getCarByAvailabilityAndLocation(availability, location);
+		List<Car> cars = carService.getCarByAvailabilityAndLocation(availability, location);
 
 		model.addAttribute("cars", cars);
 

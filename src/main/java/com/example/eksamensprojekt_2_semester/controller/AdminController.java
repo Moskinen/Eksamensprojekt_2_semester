@@ -58,8 +58,10 @@ public class AdminController {
     public String admin_index(Model model){
         List<RentalContract> totalRentedCars = rentalContractService.getActiveRentalContracts();
         int averageRentalPeriod = rentalContractService.getAverageRentalPeriod();
+        double totalRentalSum = rentalContractService.getTotalSum(totalRentedCars);
         model.addAttribute("totalRentedCars", totalRentedCars);
         model.addAttribute("averageRentalPeriod", averageRentalPeriod);
+        model.addAttribute("totalRentalSum", totalRentalSum);
         return "home/admin-index";
     }
 
