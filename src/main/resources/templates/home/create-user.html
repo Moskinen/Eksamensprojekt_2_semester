@@ -33,7 +33,7 @@
 			<form th:action="@{/create-user}" th:object="${user}" method="post"
 				enctype="multipart/form-data" class="CRUD-form">
 
-				<input type="hidden" name="id" th:value="${car}">
+				<input type="hidden" name="id" th:value="${car.id}">
 
 				<div>
 					<label>Fornavn:</label>
