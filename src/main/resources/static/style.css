@@ -187,11 +187,21 @@ h2 {
 /* ------------------
     CSS FOR LOGIN
 -------------------*/
+.error-message p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-bottom: 0px;
+}
+
 .login-h1{
     margin-top: 100px;
 }
 
-.login {
+.login{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -205,7 +215,6 @@ h2 {
 
 .login form {
     font-size: 16px;
-    margin-top: 15px;
     padding: 35px 30px;
     width: 250px;
     display: flex;
