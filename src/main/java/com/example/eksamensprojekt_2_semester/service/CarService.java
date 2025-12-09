@@ -40,6 +40,7 @@ public class CarService {
 	}
 
 	public List<Car> getFirstThreeCars() {return carRepository.getFirstThreeCars(); }
+
 	public List<Car> getCarByAvailabilityAndLocation(String availability, String location) {
 		return carRepository.getCarByAvailabilityAndLocation(availability, location);
 	}

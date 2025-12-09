@@ -37,7 +37,7 @@ public class DamageController {
 
         damageService.updateAllDamagesById(name, price, vehicleReportId);
 
-        return "redirect:/admin-index";
+        return "redirect:/admin-active-rental-contracts";
 
     }
 
