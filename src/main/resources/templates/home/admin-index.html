@@ -18,11 +18,16 @@
     </div>
 </nav>
 
+<div class="page-info">
+    <h1>Velkommen til forsiden for medarbejdere</h1>
+    <p>Her får du et overblik over vores centrale KPI'er og kan navigere mellem de forskellige værktøjer og muligheder</p>
+</div>
+
 <div class="KPI">
 
-    <p>Udlejede biler ved dags dato: <span th:text="${#lists.size(totalRentedCars)}"></span></p>
+    <a href="/show-active-rental-contracts">Udlejede biler ved dags dato: <span th:text="${#lists.size(totalRentedCars)}"></span></a>
     <p>Gennemsnitlige længde for lejeperiode: <span th:text="${averageRentalPeriod}"></span> antal dage</p>
-
+    <a href="/show-active-rental-contracts">Forventede omsætning for biludlejning i indeværende måned: <span th:text="${totalRentalSum}"></span> DKK</a>
 </div>
 </body>
 </html>
