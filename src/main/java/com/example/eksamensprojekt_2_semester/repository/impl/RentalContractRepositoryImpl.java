@@ -73,7 +73,7 @@ public class RentalContractRepositoryImpl implements RentalContractRepository {
 
 	@Override
 	public double getTotalSum() {
-        String sql = "SELECT SUM(c.monthly_price) " +
+        String sql = "SELECT COALESCE(SUM(c.monthly_price), 0) " +
                      "FROM rental_contract rc " +
                      "JOIN car c ON rc.car_id = c.id " +
                      "WHERE rc.active = true"; 

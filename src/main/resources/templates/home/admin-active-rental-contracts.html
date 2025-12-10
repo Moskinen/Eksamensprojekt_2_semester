@@ -48,7 +48,7 @@
 					<td th:text="${#temporals.format(contract.toDateTime, 'dd-MM-yyyy HH:mm')}">
 					</td>
 					<td class="price"
-						th:text="${#numbers.formatDecimal(contract.monthlyPrice, 1, 2)} + ' DKK'">
+						th:text="${#numbers.formatDecimal(carsById[contract.carId].monthlyPrice, 1, 2)} + ' DKK'">
 					</td>
 					<td><a th:href="@{/admin-update-vehicle-report(id=${contract.vehicleReportId})}"><button>Fejl
 								og mangler</button></a></td>
