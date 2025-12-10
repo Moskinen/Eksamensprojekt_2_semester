@@ -8,16 +8,16 @@
 
 <body>
 
-<nav>
-	<a href="/"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
-	<div class="nav-links">
-		<a href="/cars?availability=Leje">Lej bil</a>
-		<a href="/cars?availability=Køb">Køb bil</a>
-		<a href="/faq">FAQ</a>
-	</div>
-</nav>
+	<nav>
+		<a href="/"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
+		<div class="nav-links">
+			<a href="/cars?availability=Leje">Lej bil</a>
+			<a href="/cars?availability=Køb">Køb bil</a>
+			<a href="/faq">FAQ</a>
+		</div>
+	</nav>
 
-<a href="/" class="btn">Tilbage</a>
+	<a href="/" class="btn">Tilbage</a>
 
 	<h1>Create New Rental Contract</h1>
 
@@ -26,6 +26,7 @@
 			class="CRUD-form">
 			<input type="hidden" th:field="*{carId}" />
 			<input type="hidden" th:field="*{userId}" />
+			<input type="hidden" th:field="*{active}" />
 
 			<div>
 				<label>From Date Time:</label>
@@ -35,19 +36,6 @@
 			<div>
 				<label>To Date Time:</label>
 				<input type="datetime-local" th:field="*{toDateTime}" required />
-			</div>
-
-			<div>
-				<label>Max KM:</label>
-				<input type="number" step="0.01" th:field="*{maxKm}" required />
-			</div>
-
-			<div>
-				<label>Unlimited:</label>
-				<select th:field="*{unlimited}" required>
-					<option th:value="true" th:text="'true'">TRUE</option>
-					<option th:value="false" th:text="'false'">FALSE</option>
-				</select>
 			</div>
 
 			<div>
@@ -62,28 +50,28 @@
 		</form>
 	</div>
 
-<footer class="site-footer">
+	<footer class="site-footer">
 
-	<div class="footer-section">
-		<h3>Find os</h3>
-		<p>Brøndbyøstervej 23, 2610 Brøndby</p>
-	</div>
+		<div class="footer-section">
+			<h3>Find os</h3>
+			<p>Brøndbyøstervej 23, 2610 Brøndby</p>
+		</div>
 
-	<div class="footer-section">
-		<h3>Kontakt os</h3>
-		<p>Telefon: 51 93 23 12<br>
-			Email: <a href="mailto:Bilabonnement@kontakt.dk">Bilabonnement@kontakt.dk</a></p>
-	</div>
+		<div class="footer-section">
+			<h3>Kontakt os</h3>
+			<p>Telefon: 51 93 23 12<br>
+				Email: <a href="mailto:Bilabonnement@kontakt.dk">Bilabonnement@kontakt.dk</a></p>
+		</div>
 
-	<div class="footer-section">
-		<h3>Se også</h3>
-		<p>
-			<a href="#">Facebook</a><br>
-			<a href="#">Instagram</a>
-		</p>
-	</div>
+		<div class="footer-section">
+			<h3>Se også</h3>
+			<p>
+				<a href="#">Facebook</a><br>
+				<a href="#">Instagram</a>
+			</p>
+		</div>
 
-</footer>
+	</footer>
 
 </body>
 
