@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>show_specific_car</title>
-	<link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8">
+    <title>show_specific_car</title>
+    <link rel="stylesheet" href="/test.css">
 </head>
 
 <body>
@@ -29,75 +29,76 @@
              th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"/>
     </div>
 
-    <div class="centered-CRUD">
-        <div>
-            <label>ID:</label>
-            <span th:text="${car.id}"></span>
+    <div class="centered-CRUD-structure">
+
+        <div class="centered-CRUD">
+            <div>
+                <label>ID:</label>
+                <span th:text="${car.id}"></span>
+            </div>
+
+            <div>
+                <label>Producent:</label>
+                <span th:text="${car.brand}"></span>
+            </div>
+
+            <div>
+                <label>Model:</label>
+                <span th:text="${car.model}"></span>
+            </div>
+
+            <div>
+                <label>Skrotpris:</label>
+                <span th:text="${car.steelPrice}"></span>
+            </div>
+
+            <div>
+                <label>Skat:</label>
+                <span th:text="${car.tax}"></span>
+            </div>
+
+            <div>
+                <label>Forurening:</label>
+                <span th:text="${car.emission}"></span>
+            </div>
+
+            <div>
+                <label>Farve:</label>
+                <span th:text="${car.color}"></span>
+            </div>
+
+            <div>
+                <label>Lokation:</label>
+                <span th:text="${car.location}"></span>
+            </div>
+
+            <div>
+                <label>Skade status:</label>
+                <span th:text="${car.damageStatus}"></span>
+            </div>
+
         </div>
 
-        <div>
-            <label>Producent:</label>
-            <span th:text="${car.brand}"></span>
-        </div>
+        <div class="CRUD-buttons">
 
-        <div>
-            <label>Model:</label>
-            <span th:text="${car.model}"></span>
-        </div>
-
-        <div>
-            <label>Skrotpris:</label>
-            <span th:text="${car.steelPrice}"></span>
-        </div>
-
-        <div>
-            <label>Skat:</label>
-            <span th:text="${car.tax}"></span>
-        </div>
-
-        <div>
-            <label>Forurening:</label>
-            <span th:text="${car.emission}"></span>
-        </div>
-
-        <div>
-            <label>Farve:</label>
-            <span th:text="${car.color}"></span>
-        </div>
-
-        <div>
-            <label>Lokation:</label>
-            <span th:text="${car.location}"></span>
-        </div>
-
-        <div>
-            <label>Skade status:</label>
-            <span th:text="${car.damageStatus}"></span>
-        </div>
-
-        <div>
-
-        </div>
-
-        <div class="rent-button">
             <a th:href="@{/create-user(id=${car.id})}">
                 <button type="submit"
                         th:attr="disabled=${isDamaged or isRented or isSold}">
                     Lej bilen
                 </button>
             </a>
-        </div>
 
-        <div class="buy-button">
             <a th:href="@{/create-user(id=${car.id})}">
                 <button type="submit"
                         th:attr="disabled=${isDamaged or isSold}">
                     Køb bilen
                 </button>
             </a>
-        </div>
 
+
+        </div>
     </div>
+
 </div>
 
 </body>
