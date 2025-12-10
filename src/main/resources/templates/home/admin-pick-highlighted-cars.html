@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
@@ -47,7 +48,7 @@
         <form th:action="@{/admin-pick-highlighted-cars}" method="post">
             <input type="hidden" name="oldCarId" th:value="${oldCarId}">
             <input type="hidden" name="newCarId" th:value="${car.id}">
-            <button id="car" type="submit">Fremhæv bil</button>
+            <td><button id="car" type="submit">Fremhæv bil</button></td>
         </form>
 
     </tr>
