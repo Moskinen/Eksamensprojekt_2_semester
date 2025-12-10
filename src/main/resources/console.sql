@@ -14,7 +14,6 @@ CREATE TABLE IF NOT EXISTS car
     id            INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
     brand         VARCHAR(50),
     model         VARCHAR(50),
-    steel_price   INTEGER(10),
     tax           INTEGER(10),
     emission      INTEGER(10),
     color         VARCHAR(50),
@@ -78,12 +77,12 @@ VALUES
 
 -- 2. Insert Cars
 
-INSERT INTO car (brand, model, steel_price, tax, emission, color, location, damage_status, image, highlighted, monthly_price)
+INSERT INTO car (brand, model, tax, emission, color, location, damage_status, image, highlighted, monthly_price)
 VALUES
-    ('Toyota', 'Corolla', 20000, 1500, 120, 'Red', 'Garage A', FALSE, NULL, true, 4000),
-    ('Honda', 'Civic', 22000, 1600, 110, 'Blue', 'Garage B', FALSE, NULL, true, 3000),
-    ('Ford', 'Focus', 21000, 1550, 130, 'Black', 'Garage C', FALSE, NULL, false, 3500),
-    ('Fiat', 'Punto', 15000, 1750, 140, 'Green', 'Garage C', FALSE, NULL, true, 2900);
+    ('Toyota', 'Corolla', 1500, 120, 'Red', 'Garage A', FALSE, NULL, true, 4000),
+    ('Honda', 'Civic',1600, 110, 'Blue', 'Garage B', FALSE, NULL, true, 3000),
+    ('Ford', 'Focus', 1550, 130, 'Black', 'Garage C', FALSE, NULL, false, 3500),
+    ('Fiat', 'Punto', 1750, 140, 'Green', 'Garage C', FALSE, NULL, true, 2900);
 
 -- 3. Insert Vehicle Reports (linking to cars)
 INSERT INTO vehicle_report (totalCost) VALUES (0), (0), (0);
