@@ -26,8 +26,8 @@ public class RentalContractRepositoryImpl implements RentalContractRepository {
 
     @Override
 	public void createRentalContract(RentalContract rentalContract) {
-		String sql = "INSERT INTO rental_contract (from_date_time, to_date_time, max_km, unlimited, monthly_price, active, user_id, car_id, vehicle_report_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		template.update(sql, rentalContract.getFromDateTime(), rentalContract.getToDateTime(), rentalContract.getMaxKm(), rentalContract.isUnlimited(), rentalContract.getMonthlyPrice(), rentalContract.isActive(), rentalContract.getUserId(), rentalContract.getCarId(), rentalContract.getVehicleReportId());
+		String sql = "INSERT INTO rental_contract (from_date_time, to_date_time, active, user_id, car_id, vehicle_report_id) VALUES(?, ?, ?, ?, ?, ?)";
+		template.update(sql, rentalContract.getFromDateTime(), rentalContract.getToDateTime(), rentalContract.isActive(), rentalContract.getUserId(), rentalContract.getCarId(), rentalContract.getVehicleReportId());
 	}
 
     @Override
@@ -71,19 +71,16 @@ public class RentalContractRepositoryImpl implements RentalContractRepository {
 		return template.query(sql, rowMapper);
 	}
 
-    @Override
-    public double getTotalSum(List<RentalContract> rentalContracts) {
-        if (rentalContracts == null || rentalContracts.isEmpty()) {
-            return 0.0;
+	@Override
+	public double getTotalSum() {
+        String sql = "SELECT SUM(c.monthlyPrice) " +
+                     "FROM rental_contract rc " +
+                     "JOIN car c ON rc.carId = c.id " +
+                     "WHERE rc.active = true"; 
+    
+        Double result = template.queryForObject(sql, Double.class);
+        return result != null ? result : 0.0;
         }
-
-        double totalSum = 0.0;
-        for (RentalContract contract : rentalContracts) {
-            totalSum += contract.getMonthlyPrice();
-        }
-        return totalSum;
-    }
-
 
 
 }

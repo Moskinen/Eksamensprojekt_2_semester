@@ -6,9 +6,6 @@ public class RentalContract {
 	private int id;
 	private LocalDateTime fromDateTime;
 	private LocalDateTime toDateTime;
-	private int maxKm;
-    private double monthlyPrice;
-	private boolean unlimited;
 	private boolean active;
 	private int userId;
 	private int carId;
@@ -17,18 +14,15 @@ public class RentalContract {
 	public RentalContract() {
 	}
 
-	public RentalContract(int id, LocalDateTime fromDateTime, LocalDateTime toDateTime, int maxKm, boolean unlimited,
-			boolean active, int userId, int carId, int vehicleReportId, double monthlyPrice) {
+	public RentalContract(int id, LocalDateTime fromDateTime, LocalDateTime toDateTime,
+			boolean active, int userId, int carId, int vehicleReportId) {
 		this.id = id;
 		this.fromDateTime = fromDateTime;
 		this.toDateTime = toDateTime;
-		this.maxKm = maxKm;
-		this.unlimited = unlimited;
 		this.active = active;
 		this.userId = userId;
 		this.carId = carId;
 		this.vehicleReportId = vehicleReportId;
-        this.monthlyPrice = monthlyPrice;
 	}
 
 	public int getId() {
@@ -53,22 +47,6 @@ public class RentalContract {
 
 	public void setToDateTime(LocalDateTime toDateTime) {
 		this.toDateTime = toDateTime;
-	}
-
-	public int getMaxKm() {
-		return maxKm;
-	}
-
-	public void setMaxKm(int maxKm) {
-		this.maxKm = maxKm;
-	}
-
-	public boolean isUnlimited() {
-		return unlimited;
-	}
-
-	public void setUnlimited(boolean unlimited) {
-		this.unlimited = unlimited;
 	}
 
 	public boolean isActive() {
@@ -103,11 +81,4 @@ public class RentalContract {
 		this.vehicleReportId = vehicleReportId;
 	}
 
-    public double getMonthlyPrice() {
-        return monthlyPrice;
-    }
-
-    public void setMonthlyPrice(double monthlyPrice) {
-        this.monthlyPrice = monthlyPrice;
-    }
 }

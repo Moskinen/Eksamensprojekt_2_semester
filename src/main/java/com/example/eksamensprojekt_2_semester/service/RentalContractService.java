@@ -46,7 +46,7 @@ public class RentalContractService {
 		return rentalContractRepository.getTodaysReturns();
 	}
 
-    public double getTotalSum(List<RentalContract> rentalContracts) {
-        return rentalContractRepository.getTotalSum(rentalContracts);
+    public double getTotalSum() {
+        return rentalContractRepository.getTotalSum();
     }
 }
