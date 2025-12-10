@@ -120,7 +120,7 @@ public class CarController {
 	@GetMapping("/admin-pick-highlighted-cars")
 		public String pickHighlightedCar(Model model, @RequestParam Integer oldCarId) {
 
-		List<Car> cars = carService.getAllCars();
+		List<Car> cars = carService.getNonHightlightedCars();
 		model.addAttribute("cars", cars);
 		model.addAttribute("oldCarId", oldCarId);
 

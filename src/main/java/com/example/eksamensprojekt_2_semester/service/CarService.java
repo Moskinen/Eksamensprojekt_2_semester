@@ -47,6 +47,10 @@ public class CarService {
 		return carRepository.getHighlightedCars();
 	}
 
+	public List<Car> getNonHightlightedCars() {
+		return carRepository.getNonHightlightedCars();
+	}
+
 	public void updateHighlightedCars(int oldCarId, int newCarId) {
 		carRepository.updateHighlightedCars(oldCarId, newCarId);
 	}

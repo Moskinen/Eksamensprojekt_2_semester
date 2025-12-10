@@ -74,6 +74,16 @@ public class CarRepositoryImpl implements CarRepository {
 
     }
 
+    public  List<Car> getNonHightlightedCars() {
+
+        String sql = "SELECT * FROM car WHERE highlighted = false";
+        RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
+
+        return jdbcTemplate.query(sql, rowMapper);
+
+
+    }
+
     public void updateHighlightedCars(int oldCarId, int newCarId) {
 
         String sql1 = "UPDATE car SET highlighted = false WHERE id = ?";
