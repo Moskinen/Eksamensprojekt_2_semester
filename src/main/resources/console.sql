@@ -86,7 +86,7 @@ VALUES
     ('Fiat', 'Punto', 15000, 1750, 140, 'Green', 'Garage C', FALSE, NULL, true, 2900);
 
 -- 3. Insert Vehicle Reports (linking to cars)
-INSERT INTO vehicle_report (id) VALUES (1), (2), (3);
+INSERT INTO vehicle_report (totalCost) VALUES (0), (0), (0);
 
 -- 4. Insert Rental Contracts (linking to users, cars, and vehicle reports)
 INSERT INTO rental_contract
