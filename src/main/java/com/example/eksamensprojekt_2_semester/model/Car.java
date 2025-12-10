@@ -2,13 +2,13 @@ package com.example.eksamensprojekt_2_semester.model;
 
 import java.util.Base64;
 
-import com.example.eksamensprojekt_2_semester.model.enums.Location;
-
 public class Car {
 
     private int id;
     private String brand;
     private String model;
+    private double monthlyPrice;
+    private boolean highlighted;
     private int steelPrice;
     private int tax;
     private int emission;
@@ -21,10 +21,12 @@ public class Car {
 
     public Car() {}
 
-    public Car(int id, String brand, String model, int steelPrice, int tax, int emission, String color, String location, boolean damageStatus) {
+    public Car(int id, String brand, String model, double monthlyPrice, boolean highlighted, int steelPrice, int tax, int emission, String color, String location, boolean damageStatus) {
         this.id = id;
         this.brand = brand;
         this.model = model;
+	this.monthlyPrice = monthlyPrice;
+	this.highlighted = highlighted;
         this.steelPrice = steelPrice;
         this.tax = tax;
         this.emission = emission;
@@ -56,6 +58,7 @@ public class Car {
     public void setModel(String model) {
         this.model = model;
     }
+
 
     public int getSteelPrice() {
         return steelPrice;
@@ -116,5 +119,21 @@ public class Car {
     public String getImageBase64() {
 	if (image == null) return null;
 	return Base64.getEncoder().encodeToString(image);
+    }
+
+    public double getMonthlyPrice() {
+	return monthlyPrice;
+    }
+
+    public void setMonthlyPrice(double monthlyPrice) {
+	this.monthlyPrice = monthlyPrice;
+    }
+
+    public boolean isHighlighted() {
+	return highlighted;
+    }
+
+    public void setHighlighted(boolean highlighted) {
+	this.highlighted = highlighted;
     }
 }
