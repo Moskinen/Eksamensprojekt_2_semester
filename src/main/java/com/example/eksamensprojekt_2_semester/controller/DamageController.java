@@ -17,8 +17,9 @@ public class DamageController {
     DamageService damageService;
     VehicleReportService vehicleReportService;
 
-    public DamageController(DamageService damageService) {
+    public DamageController(DamageService damageService, VehicleReportService vehicleReportService) {
         this.damageService = damageService;
+        this.vehicleReportService = vehicleReportService;
     }
 
     @GetMapping("/admin-update-vehicle-report")
