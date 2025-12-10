@@ -73,9 +73,9 @@ public class RentalContractRepositoryImpl implements RentalContractRepository {
 
 	@Override
 	public double getTotalSum() {
-        String sql = "SELECT SUM(c.monthlyPrice) " +
+        String sql = "SELECT SUM(c.monthly_price) " +
                      "FROM rental_contract rc " +
-                     "JOIN car c ON rc.carId = c.id " +
+                     "JOIN car c ON rc.car_id = c.id " +
                      "WHERE rc.active = true"; 
     
         Double result = template.queryForObject(sql, Double.class);
