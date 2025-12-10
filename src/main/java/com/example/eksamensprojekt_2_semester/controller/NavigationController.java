@@ -18,9 +18,9 @@ public class NavigationController {
     @GetMapping("/")
     public String listCars(Model model) {
         List<Car> cars = carService.getAllCars();
-        List<Car> firstThreeCars = carService.getFirstThreeCars();
+        List<Car> highlightedCars = carService.getHighlightedCars();
         model.addAttribute("cars", cars);
-        model.addAttribute("firstThreeCars", firstThreeCars);
+        model.addAttribute("highlightedCars", highlightedCars);
         return "home/index";
     }
 

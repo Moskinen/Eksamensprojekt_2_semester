@@ -77,11 +77,13 @@ VALUES
     ('Charlie', 'Brown', '789 Pine Rd', 10003, 5559012, 'charlie@example.com', 1234512345);
 
 -- 2. Insert Cars
-INSERT INTO car (brand, model, steel_price, tax, emission, color, location, damage_status, image)
+
+INSERT INTO car (brand, model, steel_price, tax, emission, color, location, damage_status, image, highlighted, monthly_price)
 VALUES
-    ('Toyota', 'Corolla', 20000, 1500, 120, 'Red', 'Garage A', FALSE, NULL),
-    ('Honda', 'Civic', 22000, 1600, 110, 'Blue', 'Garage B', FALSE, NULL),
-    ('Ford', 'Focus', 21000, 1550, 130, 'Black', 'Garage C', FALSE, NULL);
+    ('Toyota', 'Corolla', 20000, 1500, 120, 'Red', 'Garage A', FALSE, NULL, true, 4000),
+    ('Honda', 'Civic', 22000, 1600, 110, 'Blue', 'Garage B', FALSE, NULL, true, 3000),
+    ('Ford', 'Focus', 21000, 1550, 130, 'Black', 'Garage C', FALSE, NULL, false, 3500),
+    ('Fiat', 'Punto', 15000, 1750, 140, 'Green', 'Garage C', FALSE, NULL, true, 2900);
 
 -- 3. Insert Vehicle Reports (linking to cars)
 INSERT INTO vehicle_report (id) VALUES (1), (2), (3);
