@@ -29,14 +29,12 @@
 
 <div class="cars-list">
 
-    <div th:each="car, iterStat : ${highlightedCars}" class="car-boxes">
+    <div th:each="car : ${highlightedCars}" class="car-boxes">
 
         <!-- Display image if present -->
-        <a th:href="@{/view-car(id=${car.id})}">
+
             <img th:if="${car.imageBase64 != null}"
                  th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"/>
-        </a>
-
 
         <div class="car-info">
             <div>
@@ -57,9 +55,9 @@
             </div>
         </div>
         <div>
-            <form th:action="@{/pick-highlighted-cars}" method="post">
-                <input type="hidden" name="replaceIndex" th:value="${iterStat.index}">
-                <button id="car" type="submit">Vælg ny bil</button>
+            <form th:action="@{/admin-highlighted-cars}" method="post">
+                <input type="hidden" name="oldCarId" th:value="${car.id}">
+                <button id="carId" type="submit">Vælg ny bil</button>
             </form>
         </div>
     </div>

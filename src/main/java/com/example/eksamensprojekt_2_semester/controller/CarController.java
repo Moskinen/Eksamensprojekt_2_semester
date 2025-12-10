@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.eksamensprojekt_2_semester.model.Car;
 import com.example.eksamensprojekt_2_semester.service.CarService;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class CarController {
@@ -99,16 +100,35 @@ public class CarController {
 	public String getHighlightedCars(Model model) {
 
 		List<Car> highlightedCars = carService.getHighlightedCars();
-		List<Car> cars = carService.getAllCars();
 		model.addAttribute("highlightedCars", highlightedCars);
-		model.addAttribute("cars", cars);
 
 		return "home/admin-highlighted-cars";
 
 	}
 
+	@PostMapping("/admin-highlighted-cars")
+	public String updateHighlightedCars(@RequestParam int oldCarId, RedirectAttributes redirectAttributes) {
+
+		redirectAttributes.addAttribute("oldCarId", oldCarId);
+
+		return "redirect:/admin-pick-highlighted-cars";
+
+	}
+
+	@GetMapping("/admin-pick-highlighted-cars")
+		public String pickHighlightedCar(Model model, @RequestParam Integer oldCarId) {
+
+		List<Car> cars = carService.getAllCars();
+		model.addAttribute("cars", cars);
+		model.addAttribute("oldCarId", oldCarId);
+
+		return "home/admin-pick-highlighted-cars";
+
+		}
+
+
 	@PostMapping("/admin-pick-highlighted-cars")
-	public String updateHighlightedCars(@RequestParam int oldCarId, @RequestParam int newCarId) {
+	public String returnTo(@RequestParam int oldCarId, @RequestParam int newCarId) {
 
 		carService.updateHighlightedCars(oldCarId, newCarId);
 

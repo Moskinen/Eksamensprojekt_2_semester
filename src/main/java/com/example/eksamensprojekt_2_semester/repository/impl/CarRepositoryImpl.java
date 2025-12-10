@@ -76,13 +76,11 @@ public class CarRepositoryImpl implements CarRepository {
 
     public void updateHighlightedCars(int oldCarId, int newCarId) {
 
-        RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
+        String sql1 = "UPDATE car SET highlighted = false WHERE id = ?";
+        jdbcTemplate.update(sql1, oldCarId);
 
-        String sql1 = "UPDATE car SET highlighted = false WHERE oldCarId = ?";
-        jdbcTemplate.update(sql1, rowMapper, oldCarId);
-
-        String sql2 = "UPDATE car SET highlighted = true WHERE newCarId = ?";
-        jdbcTemplate.update(sql2, rowMapper, newCarId);
+        String sql2 = "UPDATE car SET highlighted = true WHERE id = ?";
+        jdbcTemplate.update(sql2, newCarId);
 
     }
 

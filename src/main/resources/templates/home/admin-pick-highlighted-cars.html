@@ -44,8 +44,9 @@
         <td th:text="${car.model}"></td>
         <td th:text="${car.color}"></td>
         <td th:text="${car.location}"></td>
-        <form th:action="@{/index-highlight}" method="post">
-            <input type="hidden" name="carId" th:value="${car.id}">
+        <form th:action="@{/admin-pick-highlighted-cars}" method="post">
+            <input type="hidden" name="oldCarId" th:value="${oldCarId}">
+            <input type="hidden" name="newCarId" th:value="${car.id}">
             <button id="car" type="submit">Fremhæv bil</button>
         </form>
 
