@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS user(
-    id           INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
+                                   id           INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
     first_name   VARCHAR(50),
     last_name    VARCHAR(50),
     address      VARCHAR(50),
@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS user(
     cpr          VARCHAR(10)
     );
 
-CREATE TABLE IF NOT EXISTS car(
+CREATE TABLE IF NOT EXISTS car
+(
     id            INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
     brand         VARCHAR(50),
     model         VARCHAR(50),
@@ -21,21 +22,21 @@ CREATE TABLE IF NOT EXISTS car(
     damage_status BOOLEAN,
     image         LONGBLOB,
     highlighted   BOOLEAN,
-    monthly_price DOUBLE(10),
+    monthly_price DOUBLE
     );
 
 CREATE TABLE IF NOT EXISTS admin(
-    username VARCHAR(55),
+                                    username VARCHAR(55),
     password VARCHAR(55)
     );
 
 CREATE TABLE IF NOT EXISTS vehicle_report(
-    id                INT(10) PRIMARY KEY AUTO_INCREMENT,
-    FOREIGN KEY (car_id) REFERENCES car (id)
+                                             id                INT(10) PRIMARY KEY AUTO_INCREMENT,
+    totalCost         DOUBLE
     );
 
 CREATE TABLE IF NOT EXISTS rental_contract(
-    id                INT(10) PRIMARY KEY AUTO_INCREMENT,
+                                              id                INT(10) PRIMARY KEY AUTO_INCREMENT,
     from_date_time    DATETIME,
     to_date_time      DATETIME,
     active            boolean,
@@ -48,7 +49,7 @@ CREATE TABLE IF NOT EXISTS rental_contract(
     );
 
 CREATE TABLE IF NOT EXISTS purchase_contract(
-    id                INT(10) PRIMARY KEY AUTO_INCREMENT,
+                                                id                INT(10) PRIMARY KEY AUTO_INCREMENT,
     price             INT(10),
     receive_date      DATETIME,
     user_id           INT(10),
@@ -60,7 +61,7 @@ CREATE TABLE IF NOT EXISTS purchase_contract(
     );
 
 CREATE TABLE IF NOT EXISTS damages(
-    id                INT(10) PRIMARY KEY AUTO_INCREMENT,
+                                      id                INT(10) PRIMARY KEY AUTO_INCREMENT,
     name              VARCHAR(55),
     price             INT(10),
     vehicle_report_id INT(10),
@@ -83,19 +84,15 @@ VALUES
     ('Ford', 'Focus', 21000, 1550, 130, 'Black', 'Garage C', FALSE, NULL);
 
 -- 3. Insert Vehicle Reports (linking to cars)
-INSERT INTO vehicle_report (car_id)
-VALUES
-    (1),
-    (2),
-    (3);
+INSERT INTO vehicle_report (id) VALUES (1), (2), (3);
 
 -- 4. Insert Rental Contracts (linking to users, cars, and vehicle reports)
 INSERT INTO rental_contract
-(from_date_time, to_date_time, max_km, unlimited, monthly_price, active, user_id, car_id, vehicle_report_id)
+(from_date_time, to_date_time, active, user_id, car_id, vehicle_report_id)
 VALUES
-    ('2025-12-01 10:00:00', '2026-01-01 10:00:00', 1000, FALSE, 450.00, TRUE, 4, 1, 1),
-    ('2025-12-05 09:00:00', '2026-02-05 09:00:00', 0, TRUE, 700.00, TRUE, 5, 2, 2),
-    ('2025-12-10 08:00:00', '2026-01-10 08:00:00', 500, FALSE, 300.00, TRUE, 6, 3, 3);
+    ('2025-12-01 10:00:00', '2026-01-01 10:00:00',  TRUE, 1, 1, 1),
+    ('2025-12-05 09:00:00', '2026-02-05 09:00:00',   TRUE, 2, 2, 2),
+    ('2025-12-10 08:00:00', '2026-01-10 08:00:00', TRUE, 3, 3, 3);
 
 -- 5. Insert Admin
 INSERT INTO admin (username, password)
@@ -109,11 +106,12 @@ WHERE brand = 'Toyota' AND model = 'Corolla';
 
 SELECT * FROM car;
 
+SELECT * FROM user;
+
 SELECT * FROM vehicle_report;
 SELECT
     AVG(DATEDIFF(to_date_time, from_date_time)) AS avg_contract_length_days
 FROM rental_contract;
-
 
 SET FOREIGN_KEY_CHECKS = 0;
 
