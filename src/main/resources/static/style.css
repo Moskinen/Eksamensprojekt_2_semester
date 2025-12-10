@@ -1,3 +1,26 @@
+/* ------------------------
+   CSS TABLE OF CONTENTS
+---------------------------
+Ctrl + f for quick navigation
+
+1. Global Styles
+2. Navigation
+3. Footer
+4. Background Images
+5. Buttons
+6. Page Headers & Page Info
+7. Car List Grid
+8. Car List CRUD: View Car
+9. Centered CRUD Layout
+10. Create User / Rent-Buy Car Forms
+11. Filters
+12. FAQ Sections
+13. Tables
+14. Login Page
+
+--------------------
+   GLOBAL STYLES
+------------------ */
 * {
     font-family: system-ui, sans-serif;
 }
@@ -8,62 +31,223 @@ body {
     line-height: 1.6;
 }
 
+#light-p {
+    color: #F2F2F2;
+}
+
+/* ---------------------
+     NAVIGATION
+------------------------ */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 28px;
+    border-radius: 8px;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+nav a {
+    color: #111;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background 0.25s;
+}
+
+nav a:hover {
+    background-color: #f1f5f9;
+    color: #0f6f96;
+}
+
+.nav-img {
+    height: 45px;
+}
+
+.nav-links{
+    padding: 0 8px;
+}
+
+.log-out{
+    color: #1892c3;
+}
+
 /* -------------
-     BUTTONS
----------------*/
+     FOOTER
+--------------- */
+.site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 200px;
+    padding: 5px 28px 20px;
+    margin-top: 25px;
+    border-radius: 8px;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: #1892c3;
+}
+
+.footer-section a:hover {
+    color: #0f6f96;
+}
+
+.footer-section p {
+    margin: 0;
+}
+
+.footer-section h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* ---------------------
+   BACKGROUND IMAGES
+------------------------*/
+.background-img {
+    background-image: url("Driving-on-the-Ring-Road-of-Iceland-tetiana-grypachevska.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 20px 40px;
+}
+
+.background-img h1,
+.background-img label{
+    color: #F2F2F2;
+}
+
+.background-img label {
+    font-weight: bold;
+}
+
+/* ---------------
+      BUTTONS
+----------------- */
 button {
-    border: 4px solid #1892c3;
     background-color: white;
     color: #1892c3;
+    border: 4px solid #1892c3;
     border-radius: 12px;
     padding: 10px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
     margin-top: 10px;
 }
 
-button:hover{
+button:hover {
     background-color: #1892c3;
     color: white;
+    transform: translateY(-2px);
 }
 
 button:disabled {
-    background-color: #999999;
-    color: #666666;
-    border-color: #999999;
+    background-color: #999;
+    color: #666;
+    border-color: #999;
 }
 
 button:disabled:hover {
-    background-color: #999999;
-    color: #666666;
+    background-color: #999;
+    color: #666;
 }
 
-/* ------------------------
-    CSS FOR CAR DISPLAY
---------------------------*/
+.CRUD-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 75px;
+    margin: 50px 15px 0;
+}
+
+.CRUD-buttons button{
+    padding: 10px 25px;
+}
+
+.btn {
+    text-align: center;
+    float: left;
+    margin-top: 15px;
+    border-radius: 12px;
+}
+
+.btn a {
+    text-decoration: none;
+    font-weight: bolder;
+    color: #1892c3;
+}
+
+.btn a:hover {}
+
+/* ---------------------------
+   PAGE HEADERS - PAGE INFO
+-----------------------------*/
+h1, h2 {
+    text-align: center;
+    margin: 15px 0 10px;
+    font-weight: 800;
+}
+
+.page-info {
+    width: 100%;
+    text-align: center;
+}
+
+.page-info p {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    text-align: center;
+    color: #555;
+    padding-bottom: 25px;
+}
+
+/* --------------------
+      CAR LIST GRID
+----------------------*/
 .cars-list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    padding: 20px 40px;
     margin: 25px 50px;
 }
 
 .car-boxes {
-    background: #F2F2F2;
-    border-radius: 12px;
+    display: grid;
+    background: #FFF;
+    border-radius: 16px;
     padding: 20px;
-    display: flex;
+    box-shadow: 0 6px 20px #333;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-.car-boxes img {
-    width: 275px;
-    aspect-ratio: 3/2;
+.car-boxes p {
+    color: #333;
 }
 
+.car-boxes:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px #222;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.car-boxes img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    aspect-ratio: 3 / 2;
+}
+
+/* Car information layout */
 .car-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -76,17 +260,75 @@ button:disabled:hover {
 }
 
 .car-info h3 {
-    font-size: 15px;
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
     margin-bottom: 2px;
 }
 
 .car-info p {
-    margin-top: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
 }
 
-/* ------------------
-    CSS FOR CRUD
---------------------*/
+/* --------------------------------
+   CAR LIST CRUD:  VIEW CAR
+--------------------------------- */
+.page-structure {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 50px;
+}
+
+.page-structure img {
+    width: 500px;
+    aspect-ratio: 3/2;
+}
+
+.car-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.car-img img {
+    border-radius: 12px;
+    object-fit: cover;
+    aspect-ratio: 3 / 2;
+}
+
+/* -------------------------------
+    CAR INFO LAYOUT: Centered-CRUD
+----------------------------------*/
+.centered-CRUD {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 25px;
+    column-gap: 8px;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.centered-CRUD div {
+    display: flex;
+    flex-direction: column;
+    padding-left: 45px;
+}
+
+.centered-CRUD label {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.centered-CRUD span {
+    font-size: 15px;
+    color: #333;
+}
+
+/* ------------------------------
+     CREATE USER: RENT/BUY CAR
+------------------------------- */
 .form-box {
     margin-top: 50px ;
     display: flex;
@@ -96,7 +338,7 @@ button:disabled:hover {
 .CRUD-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px 30px;
+    gap: 12px 30px;
     max-width: 600px;
 }
 
@@ -112,126 +354,104 @@ button:disabled:hover {
 }
 
 .CRUD-form button {
-    margin-top: 25px;
+    margin-top:18px;
     grid-column: span 2;
 }
 
-/* -----------------------
-    CSS FOR CRUD - EXTENDED
--------------------------*/
-.page-structure{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-top: 50px;
-}
-
-.page-structure img{
-    width: 500px;
-    aspect-ratio: 3/2;
-}
-
-.car-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.centered-CRUD div {
-    padding-left: 45px;
-}
-
-.centered-CRUD label {
-    font-weight: bold;
-}
-
-.centered-CRUD {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px 30px;
-    max-width: 600px;
-}
-
-/* ------------------
-    CSS FOR FAQ
----------------------*/
-.faq-section{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px 0;
-}
-
-.faq-item {
-    background-color: #F2F2F2;
-    border-radius: 12px;
-    text-align: left;
-    align-items: center;
-    padding: 15px 25px;
-    margin: 0 50px;
-}
-
-.faq-item h3 {
-    text-align: center;
-
-}
-
-/* ------------------
-    CSS FOR FILTERS
----------------------*/
+/* -------------------------
+   VIEW ALL CARS: FILTERS
+----------------------------*/
 .filters {
     display: flex;
     justify-content: center;
-    margin-top: 45px;
-    margin-bottom: 45px;
+    margin: 20px 0;
 }
 
 .filters div {
     margin: 0 15px;
 }
 
-
-/* -----------------------
-     CSS FOR PAGE INFO
--------------------------*/
-h1 {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-}
-
-h2 {
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
-.page-info p {
-    text-align: center;
-    padding-bottom: 25px;
-}
 /* ------------------
-    CSS FOR REPORT
+   FAQ SECTIONS
+---------------------*/
+.faq-section {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px 40px;
+}
+
+.faq-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 28px;
+    box-shadow: 0 6px 20px #333;
+    max-width: 450px;
+    margin-left: 35px;
+    opacity: 0.8;
+    text-align: left;
+    align-items: center;
+}
+
+.faq-item p {
+    color: #111;
+}
+
+.faq-item h3 {
+    text-align: center;
+}
+
+/* ------------------
+      TABLES
 -------------------*/
-.damage-list {
+.damage-list,
+.list-of-cars {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
     table-layout: fixed;
     text-align: center;
-    margin-top: 50px;
 }
 
-.damage-list td {
+.damage-list td,
+.list-of-cars td {
     padding: 10px 6px;
     border-bottom: 1px solid #E5E5E5;
 }
 
-.damage-list th {
+.damage-list th,
+.list-of-cars th {
     font-weight: 600;
     padding: 10px 6px 15px;
 }
 
-.report-form-button{
+.list-of-cars tbody tr:hover {
+    background: #F2F2F2;
+}
+
+.create-car-button {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 35px;
+}
+
+.create-car {
+    width: 200px;
+    display: block;
+    text-align: center;
+}
+
+.edit-car {
+    color: #1892c3;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.edit-car:hover {
+    font-weight: bold;
+}
+
+.report-form-button {
     display: flex;
     justify-content: center;
 }
@@ -241,7 +461,7 @@ h2 {
 }
 
 /* ------------------
-    CSS FOR LOGIN
+    LOGIN PAGE
 -------------------*/
 .error-message p {
     display: flex;
@@ -286,84 +506,4 @@ h2 {
     width: 100%;
     box-sizing: border-box;
     border: 1px solid black;
-}
-
-/* ------------------
-    CSS FOR NAV
--------------------*/
-.log-out{
-    color: #1892c3;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 16px;
-}
-
-nav a {
-    color: black;
-    padding: 16px 16px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    background-color: #F2F2F2;
-}
-
-.nav-img {
-    max-height: 40px;
-}
-
-.nav-links{
-    padding: 0 8px;
-}
-
-/* -------------------
-    CSS FOR TABLE
----------------------*/
-.create-car-button {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0 35px;
-}
-
-.create-car {
-    width: 200px;
-    display: block;
-    text-align: center;
-}
-
-.list-of-cars {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    table-layout: fixed;
-    text-align: center;
-}
-
-.list-of-cars td {
-    padding: 10px 6px;
-    border-bottom: 1px solid #E5E5E5;
-}
-
-.list-of-cars th {
-    font-weight: 600;
-    padding: 10px 6px 15px;
-}
-
-.list-of-cars tbody tr:hover {
-    background: #F2F2F2;
-}
-
-.edit-car {
-    color: #1892c3;
-    text-decoration: none;
-    font-size: 13px;
-}
-
-.edit-car:hover {
-    font-weight: bold;
 }
