@@ -116,6 +116,7 @@ public class CarController {
 
 	}
 
+	/*
 	@GetMapping("/")
 	public String listCars(Model model) {
 		List<Car> cars = carService.getAllCars();
@@ -124,6 +125,8 @@ public class CarController {
 		model.addAttribute("firstThreeCars", firstThreeCars);
 		return "home/index";
 	}
+
+	 */
 
 
 }
