@@ -1,5 +1,11 @@
 * {
-    font-family: "system-ui";
+    font-family: system-ui, sans-serif;
+}
+
+body {
+    background: #fafafa;
+    color: #222;
+    line-height: 1.6;
 }
 
 /* -------------
@@ -210,8 +216,9 @@ h2 {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
-    /*table-layout: fixed;*/
+    table-layout: fixed;
     text-align: center;
+    margin-top: 50px;
 }
 
 .damage-list td {
@@ -224,13 +231,13 @@ h2 {
     padding: 10px 6px 15px;
 }
 
-.damage-list tbody tr:hover {
-    background: #F2F2F2;
+.report-form-button{
+    display: flex;
+    justify-content: center;
 }
 
-
-.report-form {
-
+.report-form-button button {
+    margin: 25px 25px 0;
 }
 
 /* ------------------

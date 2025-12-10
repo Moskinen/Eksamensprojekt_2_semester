@@ -33,6 +33,7 @@
 
         <thead>
         <tr>
+            <th></th>
             <th>Navn</th>
             <th>Pris</th>
             <th></th>
@@ -41,26 +42,27 @@
 
         <tbody>
         <tr th:each="damage: ${damages}">
+            <td></td>
             <td><input name="name" type="text" th:value="${damage.name}" required></td>
             <td><input name="price" type="number" th:value="${damage.price}" min="0" required oninput="updateTotal()"></td>
             <td><button type="button" onclick="removeRow(this); updateTotal()">Fjern</button></td>
         </tr>
 
         <tr id="totalRow">
+            <td></td>
             <td>Samlet pris:</td>
             <td><span id="totalPrice">0</span> kr.</td>
-
+            <td></td>
         </tr>
         </tbody>
-
     </table>
 
-    <div>
-        <button type="button" onclick="addRow()">Tilføj</button>
-        <button type="submit">Gem rapport</button>
-    </div>
-
 </form>
+
+<div class="report-form-button">
+    <button type="button" onclick="addRow()">Tilføj</button>
+    <button type="submit">Gem rapport</button>
+</div>
 
 <script>
 
@@ -74,6 +76,7 @@
         const row = table.insertRow(totalRow.rowIndex);
 
         row.innerHTML = `
+            <td></td>
             <td><input name="name" type="text" required/></td>
             <td><input name="price" type="number" required oninput="updateTotal()" min="0"></td>
             <td><button type="button" onclick="removeRow(this); updateTotal()">Fjern</button></td>`;
