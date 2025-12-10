@@ -40,7 +40,9 @@ public class CarController {
 
 	@GetMapping("/create-car")
 	public String showCreateForm(Model model) {
-		model.addAttribute("car", new Car());
+		Car car = new Car();
+		car.setHighlighted(false);
+		model.addAttribute("car", car);
 		return "home/admin-create-car";
 	}
 

@@ -2,85 +2,91 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Create Car</title>
-    <link rel="stylesheet" href="/style.css">
+	<title>Create Car</title>
+	<link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
-<nav>
-    <a href="/admin-index"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
-    <div class="nav-links">
-        <a href="/admin-index">KPI</a>
-        <a href="/admin-active-rental-contracts">Aktive udlejninger</a>
-        <a href="/admin-rentals-today">Dagens udlejninger</a>
-        <a href="/admin-highlighted-cars">Rediger fremhævede biler</a>
-        <a href="/admin-cars">Biler</a>
-        <a href="/admin-login" class="log-out">Log ud</a>
-    </div>
-</nav>
+	<nav>
+		<a href="/admin-index"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
+		<div class="nav-links">
+			<a href="/admin-index">KPI</a>
+			<a href="/admin-active-rental-contracts">Aktive udlejninger</a>
+			<a href="/admin-rentals-today">Dagens udlejninger</a>
+			<a href="/admin-highlighted-cars">Rediger fremhævede biler</a>
+			<a href="/admin-cars">Biler</a>
+			<a href="/admin-login" class="log-out">Log ud</a>
+		</div>
+	</nav>
 
-<a href="/admin-cars" class="btn">Tilbage</a>
+	<a href="/admin-cars" class="btn">Tilbage</a>
 
-<h1>Create New Car</h1>
+	<h1>Create New Car</h1>
 
-<div class="form-box">
-    <form th:action="@{/create-car}" th:object="${car}" method="post" enctype="multipart/form-data" class="CRUD-form">
+	<div class="form-box">
+		<form th:action="@{/create-car}" th:object="${car}" method="post" enctype="multipart/form-data"
+			class="CRUD-form">
 
-		<div>
+			<input type="hidden" th:field="*{highlighted}" <div>
 			<label>Brand:</label>
 			<input type="text" th:field="*{brand}" required />
-		</div>
+	</div>
 
-        <div>
-            <label>Model:</label>
-            <input type="text" th:field="*{model}" required/>
-        </div>
+	<div>
+		<label>Model:</label>
+		<input type="text" th:field="*{model}" required />
+	</div>
 
-        <div>
-            <label>Steel Price:</label>
-            <input type="number" step="0.01" th:field="*{steelPrice}" required/>
-        </div>
+	<div>
+		<label>Monthly Price:</label>
+		<input type="number" step="0.01" th:field="*{monthlyPrice}" required />
+	</div>
 
-        <div>
-            <label>Tax:</label>
-            <input type="number" step="0.01" th:field="*{tax}" required/>
-        </div>
+	<div>
+		<label>Steel Price:</label>
+		<input type="number" step="0.01" th:field="*{steelPrice}" required />
+	</div>
 
-        <div>
-            <label>Emission:</label>
-            <input type="number" step="0.01" th:field="*{emission}" required/>
-        </div>
+	<div>
+		<label>Tax:</label>
+		<input type="number" step="0.01" th:field="*{tax}" required />
+	</div>
 
-        <div>
-            <label>Color:</label>
-            <input type="text" th:field="*{color}" required/>
-        </div>
+	<div>
+		<label>Emission:</label>
+		<input type="number" step="0.01" th:field="*{emission}" required />
+	</div>
 
-        <div>
-            <label>Location:</label>
-            <select th:field="*{location}" required>
-                <option th:value="NORDJYLLAND" th:text="'NORDJYLLAND'">NORDJYLLAND</option>
-                <option th:value="MIDTJYLLAND" th:text="'MIDTJYLLAND'">MIDTJYLLAND</option>
-                <option th:value="SOENDERJYLLAND" th:text="'SOENDERJYLLAND'">SOENDERJYLLAND</option>
-                <option th:value="FYN" th:text="'FYN'">FYN</option>
-                <option th:value="SJAELLAND" th:text="'SJAELLAND'">SJAELLAND</option>
-            </select>
-        </div>
+	<div>
+		<label>Color:</label>
+		<input type="text" th:field="*{color}" required />
+	</div>
 
-        <div>
-            <label>Damage Status:</label>
-            <input type="text" th:field="*{damageStatus}" required/>
-        </div>
+	<div>
+		<label>Location:</label>
+		<select th:field="*{location}" required>
+			<option th:value="NORDJYLLAND" th:text="'NORDJYLLAND'">NORDJYLLAND</option>
+			<option th:value="MIDTJYLLAND" th:text="'MIDTJYLLAND'">MIDTJYLLAND</option>
+			<option th:value="SOENDERJYLLAND" th:text="'SOENDERJYLLAND'">SOENDERJYLLAND</option>
+			<option th:value="FYN" th:text="'FYN'">FYN</option>
+			<option th:value="SJAELLAND" th:text="'SJAELLAND'">SJAELLAND</option>
+		</select>
+	</div>
 
-        <div>
-            <label>Image:</label>
-			<input type="file" name="imageFile" accept="image/*" required />
-        </div>
+	<div>
+		<label>Damage Status:</label>
+		<input type="text" th:field="*{damageStatus}" required />
+	</div>
 
-        <button type="submit">Create Car</button>
-    </form>
-</div>
+	<div>
+		<label>Image:</label>
+		<input type="file" name="imageFile" accept="image/*" required />
+	</div>
+
+	<button type="submit">Create Car</button>
+	</form>
+	</div>
 </body>
 
 </html>
