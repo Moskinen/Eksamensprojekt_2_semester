@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS user(
     zip          INTEGER(10),
     phone_number INTEGER(10),
     email        VARCHAR(50),
-    cpr          INTEGER(11)
+    cpr          VARCHAR(10)
     );
 
 CREATE TABLE IF NOT EXISTS car(
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS car(
     damage_status BOOLEAN,
     image         LONGBLOB,
     highlighted   BOOLEAN,
-    monthly_price DOUBLE,
+    monthly_price DOUBLE(10),
     );
 
 CREATE TABLE IF NOT EXISTS admin(
@@ -30,8 +30,7 @@ CREATE TABLE IF NOT EXISTS admin(
     );
 
 CREATE TABLE IF NOT EXISTS vehicle_report(
-    id     INT(10) PRIMARY KEY AUTO_INCREMENT,
-    car_id INT(10),
+    id                INT(10) PRIMARY KEY AUTO_INCREMENT,
     FOREIGN KEY (car_id) REFERENCES car (id)
     );
 
@@ -39,8 +38,6 @@ CREATE TABLE IF NOT EXISTS rental_contract(
     id                INT(10) PRIMARY KEY AUTO_INCREMENT,
     from_date_time    DATETIME,
     to_date_time      DATETIME,
-    max_km            INT(10),
-    unlimited         boolean,
     active            boolean,
     user_id           INT(10),
     car_id            INT(10),
