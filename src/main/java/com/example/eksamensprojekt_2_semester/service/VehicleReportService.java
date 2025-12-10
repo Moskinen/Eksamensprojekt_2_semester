@@ -17,6 +17,10 @@ public class VehicleReportService {
         this.vehicleReportRepository = vehicleReportRepository;
     }
 
+    public int createNewVehicleReport() {
+        return vehicleReportRepository.createNewVehicleReport();
+    }
+
     public List<VehicleReport> getAllVehicleReports() {
         return vehicleReportRepository.getAllVehicleReports();
 

@@ -27,8 +27,8 @@ public class CarRepositoryImpl implements CarRepository {
 
     @Override
     public void createCar(Car car) {
-        String sql = "INSERT INTO car (brand, model, monthly_price, steel_price, tax, emission, color, location, damage_status, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        template.update(sql, car.getBrand(), car.getModel(), car.getMonthlyPrice(), car.getSteelPrice(), car.getTax(), car.getEmission(), car.getColor(), car.getLocation(), car.getDamageStatus(), car.getImage());
+        String sql = "INSERT INTO car (brand, model, monthly_price, steel_price, tax, emission, color, location, damage_status, image, highlighted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        template.update(sql, car.getBrand(), car.getModel(), car.getMonthlyPrice(), car.getSteelPrice(), car.getTax(), car.getEmission(), car.getColor(), car.getLocation(), car.getDamageStatus(), car.getImage(), false);
     }
 
     @Override

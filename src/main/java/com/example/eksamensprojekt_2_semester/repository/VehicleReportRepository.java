@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface VehicleReportRepository {
 
-    void createNewVehicleReport(VehicleReport vehicleReport);
+    int createNewVehicleReport();
 
     List<VehicleReport> getAllVehicleReports();
 

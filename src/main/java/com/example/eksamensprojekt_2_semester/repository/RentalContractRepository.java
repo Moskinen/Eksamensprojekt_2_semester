@@ -9,14 +9,16 @@ public interface RentalContractRepository {
 
 	List<RentalContract> getRentalContracts();
 
-	void createRentalContract(RentalContract rentalContract);
+	void createRentalContract(RentalContract rentalContract, int vehicleReportId);
 
 	RentalContract getRentalContractById(int id);
 
 	boolean hasRentalContract(int id);
 
 	int getAverageRentalPeriod();
+
 	List<RentalContract> getActiveRentalContracts();
+
 	List<Car> getTodaysRentals();
 
 	List<Car> getTodaysReturns();

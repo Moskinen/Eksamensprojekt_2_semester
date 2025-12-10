@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.example.eksamensprojekt_2_semester.service.VehicleReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,10 +25,10 @@ import com.example.eksamensprojekt_2_semester.service.UserService;
 public class RentalContractController {
 	@Autowired
 	RentalContractService rentalContractService;
-	
+	@Autowired
+	VehicleReportService vehicleReportService;
 	@Autowired
 	CarService carService;
-
 	@Autowired
 	UserService userService;
 
@@ -35,6 +36,7 @@ public class RentalContractController {
 	public String showCreateForm(@RequestParam int carId, @RequestParam int userId, Model model) {
 		Car car = carService.getCarById(carId);
 		User user = userService.getUserById(userId);
+
 
 		RentalContract rentalContract = new RentalContract();
 
@@ -49,10 +51,11 @@ public class RentalContractController {
 	}
 
 	@PostMapping("/create-rental-contract")
-	public String createCar(@ModelAttribute RentalContract rentalContract, RedirectAttributes redirectAttributes) {
-		rentalContractService.createRentalContract(rentalContract);
-		redirectAttributes.addFlashAttribute("message", "Rental Contract created successfully!");
-		return "redirect:/create-rental-contract";
+	public String createRentalContract(@ModelAttribute RentalContract rentalContract) {
+		int vehicleReportId = vehicleReportService.createNewVehicleReport();
+		rentalContractService.createRentalContract(rentalContract, vehicleReportId);
+			return "redirect:/";
+
 	}
 
 	@GetMapping("/admin-active-rental-contracts")

@@ -3,6 +3,7 @@ package com.example.eksamensprojekt_2_semester.repository.impl;
 import java.util.List;
 
 import com.example.eksamensprojekt_2_semester.model.Car;
+import com.example.eksamensprojekt_2_semester.model.VehicleReport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,9 +26,9 @@ public class RentalContractRepositoryImpl implements RentalContractRepository {
 	}
 
     @Override
-	public void createRentalContract(RentalContract rentalContract) {
+	public void createRentalContract(RentalContract rentalContract, int vehicleReportId) {
 		String sql = "INSERT INTO rental_contract (from_date_time, to_date_time, active, user_id, car_id, vehicle_report_id) VALUES(?, ?, ?, ?, ?, ?)";
-		template.update(sql, rentalContract.getFromDateTime(), rentalContract.getToDateTime(), rentalContract.isActive(), rentalContract.getUserId(), rentalContract.getCarId(), rentalContract.getVehicleReportId());
+		template.update(sql, rentalContract.getFromDateTime(), rentalContract.getToDateTime(), rentalContract.isActive(), rentalContract.getUserId(), rentalContract.getCarId(), vehicleReportId);
 	}
 
     @Override

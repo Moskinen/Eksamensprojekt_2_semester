@@ -19,8 +19,8 @@ public class RentalContractService {
 		return rentalContractRepository.getRentalContracts();
 	}
 
-	public void createRentalContract(RentalContract rentalContract) {
-		rentalContractRepository.createRentalContract(rentalContract);
+	public void createRentalContract(RentalContract rentalContract, int vehicleReportId) {
+		rentalContractRepository.createRentalContract(rentalContract, vehicleReportId);
 	}
 
 	public RentalContract getRentalContractById(int id) {
@@ -38,6 +38,7 @@ public class RentalContractService {
 	public List<RentalContract> getActiveRentalContracts() {
 		return rentalContractRepository.getActiveRentalContracts();
 	}
+
 	public List<Car> getTodaysRentals (){
 		return rentalContractRepository.getTodaysRentals();
 	}
