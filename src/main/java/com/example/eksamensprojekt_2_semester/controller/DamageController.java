@@ -1,8 +1,10 @@
 package com.example.eksamensprojekt_2_semester.controller;
 
 import com.example.eksamensprojekt_2_semester.model.Damage;
+import com.example.eksamensprojekt_2_semester.model.RentalContract;
 import com.example.eksamensprojekt_2_semester.model.VehicleReport;
 import com.example.eksamensprojekt_2_semester.service.DamageService;
+import com.example.eksamensprojekt_2_semester.service.RentalContractService;
 import com.example.eksamensprojekt_2_semester.service.VehicleReportService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,20 +18,20 @@ public class DamageController {
 
     DamageService damageService;
     VehicleReportService vehicleReportService;
+    RentalContractService rentalContractService;
 
-    public DamageController(DamageService damageService, VehicleReportService vehicleReportService) {
+    public DamageController(DamageService damageService, VehicleReportService vehicleReportService, RentalContractService rentalContractService) {
         this.damageService = damageService;
         this.vehicleReportService = vehicleReportService;
+        this.rentalContractService = rentalContractService;
     }
 
     @GetMapping("/admin-update-vehicle-report")
     public String showDamages(@RequestParam ("id") int vehicleReportId, Model model) {
 
         List<Damage> damages = damageService.fetchDamageById(vehicleReportId);
-
         model.addAttribute("damages", damages);
         model.addAttribute("vehicleReportId", vehicleReportId);
-
         return "home/admin-update-vehicle-report";
 
     }
@@ -42,6 +44,11 @@ public class DamageController {
 
         damageService.updateAllDamagesById(name, price, vehicleReportId);
         vehicleReportService.calculateTotalCost(vehicleReportId);
+
+        RentalContract rentalContract = rentalContractService.getByVehicleReportId(vehicleReportId);
+        if (rentalContract != null) {
+            rentalContractService.deactivateRentalContract(rentalContract.getId());
+        }
 
         return "redirect:/admin-active-rental-contracts";
 

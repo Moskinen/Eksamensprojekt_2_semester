@@ -77,9 +77,8 @@ public class CarController {
 	public String showSpecificCar(@RequestParam int id, Model model) {
 
 		Car car = carService.getCarById(id);
-		RentalContract rentalContract = new RentalContract();
 
-		boolean isRented = rentalContract.isActive();
+		boolean isRented = rentalContractService.isCarActive();
 		boolean isSold = purchaseContractService.hasPurchaseContract(id);
 		boolean isDamaged = car.getDamageStatus();
 

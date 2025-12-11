@@ -50,4 +50,16 @@ public class RentalContractService {
     public double getTotalSum() {
         return rentalContractRepository.getTotalSum();
     }
+
+	public RentalContract getByVehicleReportId(int vehicleReportId) {
+		return rentalContractRepository.getRentalContractByVehicleReportId(vehicleReportId);
+	}
+
+	public void deactivateRentalContract(int id) {
+		rentalContractRepository.updateRentalContractActive(id, false);
+	}
+
+	public boolean isCarActive(int carId) {
+		return rentalContractRepository.isCarActive(carId);
+	}
 }
