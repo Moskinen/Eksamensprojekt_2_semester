@@ -8,18 +8,16 @@ public class PurchaseContract {
 	private LocalDateTime receiveDate;
 	private int userId;
 	private int carId;
-	private int vehicleReportId;
 
 	public PurchaseContract() {
 	}
 
-	public PurchaseContract(int id, int price, LocalDateTime receiveDate, int userId, int carId, int vehicleReportId) {
+	public PurchaseContract(int id, int price, LocalDateTime receiveDate, int userId, int carId) {
 		this.id = id;
 		this.price = price;
 		this.receiveDate = receiveDate;
 		this.userId = userId;
 		this.carId = carId;
-		this.vehicleReportId = vehicleReportId;
 	}
 
 	public int getId() {
@@ -60,14 +58,6 @@ public class PurchaseContract {
 
 	public void setCarId(int carId) {
 		this.carId = carId;
-	}
-
-	public int getVehicleReportId() {
-		return vehicleReportId;
-	}
-
-	public void setVehicleReportId(int vehicleReportId) {
-		this.vehicleReportId = vehicleReportId;
 	}
 
 }
