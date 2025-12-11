@@ -8,19 +8,19 @@
 
 <body>
 
-<nav>
-	<a href="/admin-index"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
-	<div class="nav-links">
-		<a href="/admin-index">KPI</a>
-		<a href="/admin-active-rental-contracts">Aktive udlejninger</a>
-		<a href="/admin-rentals-today">Dagens udlejninger</a>
-		<a href="/admin-highlighted-cars">Rediger fremhævede biler</a>
-		<a href="/admin-cars">Biler</a>
-		<a href="/admin-login" class="log-out">Log ud</a>
-	</div>
-</nav>
+	<nav>
+		<a href="/admin-index"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
+		<div class="nav-links">
+			<a href="/admin-index">KPI</a>
+			<a href="/admin-active-rental-contracts">Aktive udlejninger</a>
+			<a href="/admin-rentals-today">Dagens udlejninger</a>
+			<a href="/admin-highlighted-cars">Rediger fremhævede biler</a>
+			<a href="/admin-cars">Biler</a>
+			<a href="/admin-login" class="log-out">Log ud</a>
+		</div>
+	</nav>
 
-<a href="/admin-cars" class="btn">Tilbage</a>
+	<a href="/admin-cars" class="btn">Tilbage</a>
 
 	<h1>Update Car</h1>
 
@@ -47,8 +47,8 @@
 			</div>
 
 			<div>
-				<label>Pris pr. måned</label>
-				<input type="number" step="0.01" th:field="*{car.monthlyPrice + ' DKK'}" required />
+				<label>Pris pr. måned (DKK):</label>
+				<input type="number" step="0.01" th:field="*{monthlyPrice}" required />
 			</div>
 
 			<div>
@@ -81,7 +81,10 @@
 
 			<div>
 				<label>Damage Status:</label>
-				<input type="text" th:field="*{damageStatus}" required />
+				<select th:field="*{damageStatus}" required>
+					<option th:value="true" th:text="'true'">true</option>
+					<option th:value="false" th:text="'false'">false</option>
+				</select>
 			</div>
 
 			<div>

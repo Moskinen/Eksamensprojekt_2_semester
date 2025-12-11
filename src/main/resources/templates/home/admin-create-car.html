@@ -33,8 +33,8 @@
 				<input type="text" th:field="*{model}" required />
 			</div>
 			<div>
-				<label>Monthly Price:</label>
-				<input type="number" step="0.01" th:field="*{monthlyPrice + ' DKK'}" required />
+				<label>Monthly Price (DKK):</label>
+				<input type="number" step="0.01" th:field="*{monthlyPrice}" required />
 			</div>
 			<div>
 				<label>Tax:</label>
@@ -62,8 +62,8 @@
 			<div>
 				<label>Damage Status:</label>
 				<select th:field="*{damageStatus}" required>
-					<option th:value="true" th:text="'true'">True</option>
-					<option th:value="false" th:text="'false'">False</option>
+					<option th:value="true" th:text="'true'">true</option>
+					<option th:value="false" th:text="'false'">false</option>
 				</select>
 			</div>
 			<div>
