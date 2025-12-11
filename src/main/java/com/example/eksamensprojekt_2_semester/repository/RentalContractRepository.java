@@ -25,4 +25,10 @@ public interface RentalContractRepository {
 
     double getTotalSum();
 
+	RentalContract getRentalContractByVehicleReportId(int vehicleReportId);
+
+	void updateRentalContractActive(int id, boolean isActive);
+
+	boolean isCarActive(int id);
+
 }

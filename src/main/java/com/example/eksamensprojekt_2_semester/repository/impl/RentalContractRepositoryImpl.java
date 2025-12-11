@@ -83,5 +83,27 @@ public class RentalContractRepositoryImpl implements RentalContractRepository {
         return result != null ? result : 0.0;
         }
 
+	@Override
+	public RentalContract getRentalContractByVehicleReportId(int vehicleReportId) {
+		String sql = "SELECT * FROM rental_contract WHERE vehicle_report_id = ?";
+		RowMapper<RentalContract> rowMapper = new BeanPropertyRowMapper<>(RentalContract.class);
+		List<RentalContract> results = template.query(sql, rowMapper, vehicleReportId);
+		return results.isEmpty() ? null : results.get(0);
+	}
+
+	@Override
+		public void updateRentalContractActive(int id, boolean active) {
+		String sql = "UPDATE rental_contract SET active = ? WHERE id = ?";
+		template.update(sql, active, id);
+	}
+
+	@Override
+	public boolean isCarActive(int carId) {
+		String sql = "SELECT * FROM rental_contract WHERE car_id = ? AND active = true LIMIT 1";
+		RowMapper<RentalContract> rowMapper = new BeanPropertyRowMapper<>(RentalContract.class);
+		List<RentalContract> results = template.query(sql, rowMapper, carId);
+		return !results.isEmpty();
+	}
+
 
 }
