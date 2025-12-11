@@ -51,8 +51,9 @@ public class VehicleReportRepositoryImpl implements VehicleReportRepository {
     @Override
     public void calculateTotalCost(int vehicleReportId) {
 
-        String sql = "UPDATE vehicle_report SET total_cost =  ( SELECT COALESCE(SUM(price), 0) FROM damages WHERE vehicle_report_id = ?) WHERE id = ?";
-        template.update(sql, vehicleReportId, vehicleReportId);
+	String sql = "UPDATE vehicle_report SET total_cost = (SELECT COALESCE(SUM(price), 0) FROM damages WHERE vehicle_report_id = vehicle_report.id) WHERE id = ?";
+
+	template.update(sql, vehicleReportId);
 
     }
 
