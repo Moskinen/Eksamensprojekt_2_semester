@@ -92,7 +92,7 @@
 
         fetch("/cars/fragment?location=" + location + "&availability=" + availability)
             .then(res => res.text())
-            .then(html => document.querySelector("#car-list-container").innerHTML = html)
+            .then(html => document.querySelector("#car-list").outerHTML = html)
 
     }
 
