@@ -78,7 +78,7 @@ public class CarController {
 
 		Car car = carService.getCarById(id);
 
-		boolean isRented = rentalContractService.isCarActive();
+		boolean isRented = rentalContractService.isCarActive(id);
 		boolean isSold = purchaseContractService.hasPurchaseContract(id);
 		boolean isDamaged = car.getDamageStatus();
 
