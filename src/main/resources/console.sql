@@ -53,10 +53,8 @@ CREATE TABLE IF NOT EXISTS purchase_contract(
     receive_date      DATETIME,
     user_id           INT(10),
     car_id            INT(10),
-    vehicle_report_id INT(10),
     FOREIGN KEY (user_id) REFERENCES user (id),
     FOREIGN KEY (car_id) REFERENCES car (id),
-    FOREIGN KEY (vehicle_report_id) REFERENCES vehicle_report (id)
     );
 
 CREATE TABLE IF NOT EXISTS damages(
