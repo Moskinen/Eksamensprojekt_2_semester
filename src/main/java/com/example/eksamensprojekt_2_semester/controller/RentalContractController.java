@@ -51,10 +51,11 @@ public class RentalContractController {
 	}
 
 	@PostMapping("/create-rental-contract")
-	public String createRentalContract(@ModelAttribute RentalContract rentalContract) {
+	public String createRentalContract(@ModelAttribute RentalContract rentalContract, RedirectAttributes redirectAttributes) {
 		int vehicleReportId = vehicleReportService.createNewVehicleReport();
 		rentalContractService.createRentalContract(rentalContract, vehicleReportId);
-			return "redirect:/";
+		redirectAttributes.addFlashAttribute("successMessage", "Rental contract created successfully!");
+		return "redirect:/";
 
 	}
 

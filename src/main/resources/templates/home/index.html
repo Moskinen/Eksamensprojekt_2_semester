@@ -1,87 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-    <link rel="stylesheet" href="/style.css">
+	<meta charset="UTF-8">
+	<title>Index</title>
+	<link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
 
-<nav>
-    <a href="/"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
-    <div class="nav-links">
-        <a href="/cars?availability=Leje">Lej bil</a>
-        <a href="/cars?availability=Køb">Køb bil</a>
-        <a href="/faq">FAQ</a>
-    </div>
-</nav>
+	<nav>
+		<a href="/"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
+		<div class="nav-links">
+			<a href="/cars?availability=Leje">Lej bil</a>
+			<a href="/cars?availability=Køb">Køb bil</a>
+			<a href="/faq">FAQ</a>
+		</div>
+	</nav>
 
-<div class="background-img">
-    <div class="page-info">
-        <h1> Fremhævede biler</h1>
-        <!--    <p> Uanset om du leder efter en økonomisk pendlerbil, en rummelig familievogn eller en robust-->
-        <!--        SUV til længere ture, finder du noget for enhver smag her. Tag et kig på vores udvalgte modeller, og gå på-->
-        <!--        opdagelse i det komplette sortiment af biler i alle størrelser – klar til både køb og udlejning</p>-->
-    </div>
+	<div th:if="${successMessage}" class="success-message">
+		<p th:text="${successMessage}"></p>
+	</div>
 
-    <div class="cars-list">
+	<div class="background-img">
+		<div class="page-info">
+			<h1> Fremhævede biler</h1>
+			<!--    <p> Uanset om du leder efter en økonomisk pendlerbil, en rummelig familievogn eller en robust-->
+			<!--        SUV til længere ture, finder du noget for enhver smag her. Tag et kig på vores udvalgte modeller, og gå på-->
+			<!--        opdagelse i det komplette sortiment af biler i alle størrelser – klar til både køb og udlejning</p>-->
+		</div>
 
-
-        <div th:each="car : ${highlightedCars}" class="car-boxes">
-
-
-            <!-- Display image if present -->
-            <a th:href="@{/show-specific-car(id=${car.id})}">
-                <img th:if="${car.imageBase64 != null}"
-                     th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"/>
-            </a>
+		<div class="cars-list">
 
 
-            <div class="car-info">
-                <div>
-                    <h3>Mærke:</h3>
-                    <p th:text="${car.brand}"></p>
-                </div>
-                <div>
-                    <h3>Model:</h3>
-                    <p th:text="${car.model}"></p>
-                </div>
-                <div>
-                    <h3>Pris pr. måned:</h3>
-                    <p th:text="${car.monthlyPrice + ' DKK'}"></p>
-                </div>
-                <div>
-                    <h3>Farve:</h3>
-                    <p th:text="${car.color}"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+			<div th:each="car : ${highlightedCars}" class="car-boxes">
 
-<footer class="site-footer">
 
-    <div class="footer-section">
-        <h3>Find os</h3>
-        <p>Brøndbyøstervej 23, 2610 Brøndby</p>
-    </div>
+				<!-- Display image if present -->
+				<a th:href="@{/show-specific-car(id=${car.id})}">
+					<img th:if="${car.imageBase64 != null}"
+						th:src="'data:image/jpeg;base64,' + ${car.imageBase64}" />
+				</a>
 
-    <div class="footer-section">
-        <h3>Kontakt os</h3>
-        <p>Telefon: 51 93 23 12<br>
-            Email: <a href="mailto:Bilabonnement@kontakt.dk">Bilabonnement@kontakt.dk</a></p>
-    </div>
 
-    <div class="footer-section">
-        <h3>Se også</h3>
-        <p>
-            <a href="#">Facebook</a><br>
-            <a href="#">Instagram</a>
-        </p>
-    </div>
+				<div class="car-info">
+					<div>
+						<h3>Mærke:</h3>
+						<p th:text="${car.brand}"></p>
+					</div>
+					<div>
+						<h3>Model:</h3>
+						<p th:text="${car.model}"></p>
+					</div>
+					<div>
+						<h3>Pris pr. måned:</h3>
+						<p th:text="${car.monthlyPrice + ' DKK'}"></p>
+					</div>
+					<div>
+						<h3>Farve:</h3>
+						<p th:text="${car.color}"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-</footer>
+	<footer class="site-footer">
+
+		<div class="footer-section">
+			<h3>Find os</h3>
+			<p>Brøndbyøstervej 23, 2610 Brøndby</p>
+		</div>
+
+		<div class="footer-section">
+			<h3>Kontakt os</h3>
+			<p>Telefon: 51 93 23 12<br>
+				Email: <a href="mailto:Bilabonnement@kontakt.dk">Bilabonnement@kontakt.dk</a></p>
+		</div>
+
+		<div class="footer-section">
+			<h3>Se også</h3>
+			<p>
+				<a href="#">Facebook</a><br>
+				<a href="#">Instagram</a>
+			</p>
+		</div>
+
+	</footer>
 
 
 </body>
+
 </html>
