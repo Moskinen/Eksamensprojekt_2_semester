@@ -24,16 +24,15 @@ public class PurchaseContractController{
 	UserService userService;
 
 	@GetMapping("/create-purchase-contract")
-	public String showCreateForm(@RequestParam int carId, @RequestParam int userId, Model model) {
+	public String showCreateForm(@RequestParam int id, @RequestParam int userId, Model model) {
 
-		Car car = carService.getCarById(carId);
+		Car car = carService.getCarById(id);
 		User user = userService.getUserById(userId);
 
 		PurchaseContract purchaseContract = new PurchaseContract();
 
-		purchaseContract.setCarId(carId);
+		purchaseContract.setCarId(id);
 		purchaseContract.setUserId(userId);
-		purchaseContract.setVehicleReportId(1);
 
 		model.addAttribute("purchase_contract", purchaseContract);
 		model.addAttribute("car", car);
