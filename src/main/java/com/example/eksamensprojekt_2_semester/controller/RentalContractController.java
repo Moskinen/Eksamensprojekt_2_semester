@@ -33,14 +33,14 @@ public class RentalContractController {
 	UserService userService;
 
 	@GetMapping("/create-rental-contract")
-	public String showCreateForm(@RequestParam int carId, @RequestParam int userId, Model model) {
-		Car car = carService.getCarById(carId);
+	public String showCreateForm(@RequestParam int id, @RequestParam int userId, Model model) {
+		Car car = carService.getCarById(id);
 		User user = userService.getUserById(userId);
 
 
 		RentalContract rentalContract = new RentalContract();
 
-		rentalContract.setCarId(carId);
+		rentalContract.setCarId(id);
 		rentalContract.setUserId(userId);
 		rentalContract.setActive(true);
 

@@ -74,6 +74,7 @@ public class CarController {
 
 	@GetMapping("/show-specific-car")
 	public String showSpecificCar(@RequestParam int id, Model model) {
+
 		Car car = carService.getCarById(id);
 
 		boolean isRented = rentalContractService.hasRentalContract(id);
@@ -84,7 +85,19 @@ public class CarController {
 		model.addAttribute("isRented", isRented);
 		model.addAttribute("isSold", isSold);
 		model.addAttribute("isDamaged", isDamaged);
+
 		return "home/view-car";
+
+	}
+
+	@PostMapping("/show-specific-car")
+	public String sendSpecificCar(@RequestParam int id, @RequestParam String mode, RedirectAttributes redirectAttributes) {
+
+		redirectAttributes.addAttribute("id", id);
+		redirectAttributes.addAttribute("mode", mode);
+
+		return "redirect:/create-user";
+
 	}
 
 	@GetMapping("/cars/fragment")
