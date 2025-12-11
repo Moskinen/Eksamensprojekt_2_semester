@@ -26,18 +26,21 @@ public class UserController {
     }
 
     @GetMapping("/create-user")
-    public String showCreateUserForm(@RequestParam int carId, Model model) {
-        Car car = carService.getCarById(carId);
+    public String showCreateUserForm(@RequestParam int id, @RequestParam String mode, Model model) {
+
+        Car car = carService.getCarById(id);
         model.addAttribute("car", car);
         model.addAttribute("user", new User());
+        model.addAttribute("mode", mode);
         return "home/create-user";
+
     }
 
     @PostMapping("/create-user")
-    public String createUser(@ModelAttribute User user, @RequestParam int carId, @RequestParam String mode, RedirectAttributes redirectAttributes) {
+    public String createUser(@ModelAttribute User user, @RequestParam int id, @RequestParam String mode, RedirectAttributes redirectAttributes) {
 
         User savedUser = userService.createUser(user);
-        redirectAttributes.addAttribute("carId", carId);
+        redirectAttributes.addAttribute("id", id);
         redirectAttributes.addAttribute("userId", savedUser.getId());
 
         if (mode.equals("rent")) {

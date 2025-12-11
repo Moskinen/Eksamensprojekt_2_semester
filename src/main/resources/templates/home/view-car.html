@@ -82,17 +82,24 @@
 
             <div class="CRUD-buttons">
 
-        <form th:action="@{/create-user(carId=${car.id})}" method="post">
 
-                <button type="submit" name="mode" value="rent" th:attr="disabled=${isDamaged or isRented or isSold}"> Lej bilen</button>
+                <form th:action="@{/show-specific-car}" method="post">
 
-                <button type="submit" name="mode" value="buy" th:attr="disabled=${isDamaged or isSold}">Køb bilen</button>
+                    <input type="hidden" name="id" th:value="${car.id}">
 
-            </form>
+                    <button type="submit" name="mode" value="rent"
+                            th:attr="disabled=${isDamaged or isRented or isSold}"> Lej bilen
+                    </button>
+
+                    <button type="submit" name="mode" value="buy" th:attr="disabled=${isDamaged or isSold}">Køb bilen
+                    </button>
+
+
+
+                </form>
+
 
             </div>
-
-        </div>
 
         </div>
 
